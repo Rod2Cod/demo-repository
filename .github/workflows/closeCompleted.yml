@@ -18,6 +18,7 @@ jobs:
       - name: install dependencies
         run: npm install @octokit/core
         
-      - name: bugfix
-        run: |  
-          ls node_modules
+      - name: Close issues with all tasks completed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node closeCompleted.js
