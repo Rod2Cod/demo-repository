@@ -22,4 +22,5 @@ jobs:
       - name: Close issues with all tasks completed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: .github/scripts
         run: node .githib/workflows/completedIssue.js
