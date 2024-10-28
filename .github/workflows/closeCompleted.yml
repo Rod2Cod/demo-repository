@@ -23,4 +23,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: .github/scripts
-        run: node .github/workflows/completedIssue.js
+        run: node completedIssue.js
