@@ -20,9 +20,9 @@ jobs:
         run: npm install @octokit/core
 
       - name: See all files
-        run: ls -R
+        run: ls
         
       - name: Close issues with all tasks completed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node completedIssue.js
+        run: node ../.github/workflows/completedIssue.js
