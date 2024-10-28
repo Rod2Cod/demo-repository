@@ -1,4 +1,4 @@
-const { Octokit } = import("@octokit/core");
+import Octkit from "@octokit/core";
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 async function closeCompletedIssues() {
