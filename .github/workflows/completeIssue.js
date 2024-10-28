@@ -1,7 +1,7 @@
 const { Octokit } = require("@octokit/core");
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-async function closeCompletedIssues() {
+async function completedIssues() {
   const { data: issues } = await octokit.request(`GET /repos/${process.env.GITHUB_REPOSITORY}/issues`, {
     state: 'open'
   });
