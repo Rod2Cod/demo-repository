@@ -18,4 +18,4 @@ jobs:
       - name: Close issues with all tasks completed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo node .github/workflows/closeCompleted.js
+        run: node .github/workflows/closeCompleted.js
