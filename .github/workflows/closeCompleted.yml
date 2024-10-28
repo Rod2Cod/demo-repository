@@ -15,9 +15,6 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies
-        run: npm install @octokit/core
-
       - name: Close issues with all tasks completed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
