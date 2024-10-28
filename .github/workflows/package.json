@@ -1,9 +1,0 @@
-{
-  "name": "close-issues-action",
-  "version": "1.0.0",
-  "main": "closeCompletedIssues.js",
-  "license": "MIT",
-  "dependencies": {
-    "@octokit/core": "^4.0.0"
-  }
-}
