@@ -1,7 +1,7 @@
-name: Close Completed Issues
-
 on:
-  workflow_dispatch:  # Permette di eseguirla manualmente
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  workflow_dispatch:  # Allows manual run
 
 jobs:
   close_completed_issues:
@@ -9,20 +9,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.1.0
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-            node-version: '22'
+          node-version: '16'  # Specify the Node.js version
 
       - name: Install dependencies
-        run: npm install @octokit/core
+        run: npm install @octokit/core node-fetch
 
-      - name: See all files
-        run: ls
-        
-      - name: Close issues with all tasks completed
+      - name: Run Close Completed Issues Script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node completeIssue.js
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .github/workflows/closeCompleted.mjs
