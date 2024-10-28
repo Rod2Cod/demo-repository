@@ -20,7 +20,7 @@ jobs:
         run: npm install @octokit/core
 
       - name: See all files
-        run: ls -r
+        run: ls -R
         
       - name: Close issues with all tasks completed
         env:
