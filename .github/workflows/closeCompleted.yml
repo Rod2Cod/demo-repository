@@ -14,6 +14,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '22'
+          
+      - name: install dependencies
+        run: npm install @octokit/core
 
       - name: Close issues with all tasks completed
         env:
