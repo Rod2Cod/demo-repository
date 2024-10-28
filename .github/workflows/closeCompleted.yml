@@ -20,4 +20,4 @@ jobs:
         
       - name: bugfix
         run: |  
-          ls node_modiles
+          ls node_modules
