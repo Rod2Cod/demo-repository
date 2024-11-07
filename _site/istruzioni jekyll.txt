@@ -23,6 +23,6 @@ per cercare nuovi temepale nel sito https://rubygems.org/ cercare jekyll-theme
 per applicate il template:
 	nel gemfile:
 		sostituire la riga gem "minima", "~> 2.5" con quella indicata nel readme del temeplate scelto
-		eseguire il comendo bundle install
+		eseguire il comando bundle install e poi bundle exec jekyll serve
 
 		
