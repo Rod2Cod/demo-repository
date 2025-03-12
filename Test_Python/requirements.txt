@@ -1,0 +1,3 @@
+# Per specificare la versione di un pacchetto si può usare ==, >, >=, <, <=
+# Per specificare una versione di python, usare come interprete di partenza quello della versione richiesta
+pytest == 8.3.5
