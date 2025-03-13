@@ -1,6 +1,6 @@
 import src.square as sq
 import pytest
-
+from time import sleep
 
 class TestSquare:
     def setup_method(self):
@@ -30,3 +30,8 @@ class TestSquare:
         with pytest.raises(ValueError):
             s = sq.square(-5)
             s.perimeter()
+
+    @pytest.mark.skip(reason="Very inefficient")
+    def test_unefficient(self):
+        sleep(5)
+        assert True

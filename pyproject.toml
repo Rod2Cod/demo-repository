@@ -13,7 +13,9 @@ dependencies = [
 [tool.radon]
 exclude = "tests/*,docs/*"
 
+
 [tool.coverage.run]
+command_line = "-m pytest"
 branch = true
 omit = [
     "/.venv/*",
