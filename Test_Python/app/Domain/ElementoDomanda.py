@@ -1,5 +1,22 @@
-from Risposta import Risposta
-from Domanda import Domanda
+class Domanda:
+    def __init__(self, text: str):
+        self.__text = text
+
+    def getText(self) -> str:
+        return self.__text
+    
+    def setText(self, text: str):
+        self.__text = text
+
+class Risposta:
+    def __init__(self, text: str):
+        self.__text = text
+
+    def getText(self) -> str:
+        return self.__text
+    
+    def setText(self, text: str):
+        self.__text = text
 
 class ElementoDomanda:
     def __init__(self, domanda: str, risposta: str, id: int):
