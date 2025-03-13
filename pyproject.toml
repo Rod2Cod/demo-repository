@@ -1,0 +1,50 @@
+[project]
+name = "pytestreport"
+version = "0.1.0"
+description = "Simple project to generate a report of pytest results and calculate ciclomatic complexity"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage>=7.6.12",
+    "pytest>=8.3.5",
+    "radon>=6.0.1",
+]
+
+[tool.radon]
+exclude = "tests/*,docs/*"
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "/.venv/*",
+    "/tests/*",
+    "__init__.py",
+    ]
+
+[tool.coverage.report]
+omit = ["*tests/*"]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+    ]
+
+
+skip_covered = false
+show_missing = true
+ignore_errors = true
+
+[tool.coverage.html]
+directory = "coverage_html_report"
