@@ -4,21 +4,25 @@ from app.Domain import SetElementiDomanda
 class PortaGestionePersistenceSet(ABC):
 
     @abstractmethod
-    def saveSetElementiDomanda(self, setElementi: SetElementiDomanda) -> bool:
+    def saveSet(self, setElementi: SetElementiDomanda) -> bool:
         pass
     
     @abstractmethod
-    def getSetElementiDomandaByName(self, name: str) -> SetElementiDomanda:
+    def getSetByNome(self, nome: str) -> SetElementiDomanda:
         pass
 
     @abstractmethod
-    def deleteSetElementiDomandaByName(self, name: str) -> SetElementiDomanda:
+    def deleteSetByNome(self, nome: str) -> SetElementiDomanda:
         pass
 
     @abstractmethod
-    def getAllSetElementiDomanda(self) -> set[SetElementiDomanda]:
+    def getAllSet(self) -> set[SetElementiDomanda]:
         pass
 
     @abstractmethod
-    def editNomeSetElementiDomanda(self, name: str, newName: str) -> SetElementiDomanda:
+    def editNomeSeta(self, nome: str, newNome: str) -> SetElementiDomanda:
+        pass
+
+    @abstractmethod
+    def updateElementiDomandaAssociati(self, nome: str, elementiId: set[int]) -> bool:
         pass
