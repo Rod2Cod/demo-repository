@@ -32,6 +32,7 @@ class TestSquare:
             s.perimeter()
 
     @pytest.mark.skip(reason="Very inefficient")
+    @pytest.mark.slow
     def test_unefficient(self):
         sleep(5)
         assert True

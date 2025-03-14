@@ -10,10 +10,14 @@ dependencies = [
     "radon>=6.0.1",
 ]
 
+# Configuration for the radon module, the one that calculates the cyclomatic complexity
 [tool.radon]
-exclude = "tests/*,docs/*"
+ignore = "tests,docs"
+cc_min = "A"
+show_complexity = true
 
 
+# Configuration for the coverage module, the one that calculates the test coverage
 [tool.coverage.run]
 command_line = "-m pytest"
 branch = true
@@ -50,5 +54,6 @@ ignore_errors = true
 [tool.coverage.html]
 directory = "coverage_html_report"
 
+# Configuration for the pytest module, the one that runs the unit tests
 [tool.pytest]
-markers = ["slow"]
+markers = ["slow"] # Custom marker for slow tests, to be used with the -m option
