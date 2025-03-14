@@ -1,6 +1,10 @@
 {
     "python.testing.pytestArgs": [
-        "test"
+        "-v",
+        "--cov=Test_Python/test",
+        "--cov-report=xml",
+        "--pdb",
+        "Test_Python"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
