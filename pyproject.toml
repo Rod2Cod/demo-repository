@@ -18,13 +18,12 @@ exclude = "tests/*,docs/*"
 command_line = "-m pytest"
 branch = true
 omit = [
-    "/.venv/*",
-    "/tests/*",
+    ".venv/*",
+    "tests/*",
     "__init__.py",
     ]
 
 [tool.coverage.report]
-omit = ["*tests/*"]
 # Regexes for lines to exclude from consideration
 exclude_also = [
     # Don't complain about missing debug-only code:
@@ -50,3 +49,6 @@ ignore_errors = true
 
 [tool.coverage.html]
 directory = "coverage_html_report"
+
+[tool.pytest]
+markers = ["slow"]
