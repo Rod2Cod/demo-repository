@@ -12,7 +12,7 @@ dependencies = [
 
 # Configuration for the radon module, the one that calculates the cyclomatic complexity
 [tool.radon]
-ignore = "tests,docs"
+ignore = "tests,docs" #ignores the previous directories, different from exclude
 cc_min = "A"
 show_complexity = true
 
