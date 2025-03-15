@@ -1,4 +1,4 @@
-from .ElementoDomanda import ElementoDomanda
+from app.domain.ElementoDomanda import ElementoDomanda
 
 class SetElementiDomanda:
     def __init__(self, elementi: set[ElementoDomanda], nome: str):
