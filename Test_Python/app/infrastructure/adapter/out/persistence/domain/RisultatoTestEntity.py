@@ -7,7 +7,13 @@ class RisultatoSingolaDomandaEntity(db.Model):
     risposta = db.Column(db.Text, nullable=False) 
     rispostaLLM = db.Column(db.Text, nullable=False)
     score = db.Column(db.Float, nullable=False)
-    risultatoTestId = db.Column(db.Integer, db.ForeignKey('risultato_test.id'), nullable=False)
+    metrica1 = db.Column(db.Float, nullable=False)
+    metrica2 = db.Column(db.Float, nullable=False)
+    metrica3 = db.Column(db.Float, nullable=False)
+    metrica4 = db.Column(db.Float, nullable=False)
+    metrica5 = db.Column(db.Float, nullable=False)
+    metrica6 = db.Column(db.Float, nullable=False)
+    risultatoTestId = db.Column(db.Integer, db.ForeignKey('risultato_test.id', ondelete='CASCADE'), nullable=False)
     
 
 class RisultatoTestEntity(db.Model):
