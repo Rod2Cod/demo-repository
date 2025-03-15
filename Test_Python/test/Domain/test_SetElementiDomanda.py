@@ -1,5 +1,5 @@
 import pytest
-from app.Domain import SetElementiDomanda,ElementoDomanda
+from app.domain import SetElementiDomanda,ElementoDomanda
 
 elemento1 = ElementoDomanda("Qual è la capitale d'Italia?", "Roma", 1)
 elemento2 = ElementoDomanda("Qual è la capitale della Francia?", "Parigi", 2)
@@ -33,3 +33,6 @@ def test_set_nome(setElementi):
     newNome = "Set2"
     setElementi.setNome(newNome)
     assert setElementi.getNome() == newNome
+
+def test_1(setElementi):
+    assert elemento1 in setElementi.getElementi()

@@ -1,5 +1,5 @@
 import pytest
-from app.Domain import RisultatoTest, RisultatoSingolaDomanda
+from app.domain import RisultatoTest, RisultatoSingolaDomanda
 
 # TEST RISULTATO SINGOLA DOMANDA
 

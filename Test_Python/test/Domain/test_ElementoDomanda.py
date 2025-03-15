@@ -1,5 +1,5 @@
 import pytest
-from app.Domain import ElementoDomanda,Domanda,Risposta
+from app.domain import ElementoDomanda,Domanda,Risposta
 
 # TEST DOMANDA
 
