@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from app.Domain import ElementoDomanda
+from app.domain import ElementoDomanda
 
 class PortaGestionePersistenceDomande(ABC):
 

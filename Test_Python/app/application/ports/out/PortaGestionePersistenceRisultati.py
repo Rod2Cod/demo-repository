@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from app.Domain import RisultatoTest,RisultatoSingolaDomanda
+from app.domain import RisultatoTest,RisultatoSingolaDomanda
 
 class PortaGestionePersistenceRisultati(ABC):
 

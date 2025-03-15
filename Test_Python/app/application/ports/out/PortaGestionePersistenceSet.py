@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from app.Domain import SetElementiDomanda
+from app.domain import SetElementiDomanda
 
 class PortaGestionePersistenceSet(ABC):
 
