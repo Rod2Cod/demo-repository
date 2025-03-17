@@ -34,5 +34,5 @@ def test_set_nome(setElementi):
     setElementi.setNome(newNome)
     assert setElementi.getNome() == newNome
 
-def test_1(setElementi):
+def test_domanda_associata(setElementi):
     assert elemento1 in setElementi.getElementi()
