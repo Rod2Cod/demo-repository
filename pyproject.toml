@@ -8,6 +8,7 @@ dependencies = [
     "coverage>=7.6.12",
     "pytest>=8.3.5",
     "radon>=6.0.1",
+    "xenon>=0.9.3",
 ]
 
 # Configuration for the radon module, the one that calculates the cyclomatic complexity
