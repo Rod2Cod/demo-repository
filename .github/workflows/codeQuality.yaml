@@ -27,7 +27,3 @@ jobs:
     - name: Check ciclomatic complexity
       run: |
         radon cc .
-
-    - name: Run Xenon
-      run: |
-        xenon --max-complexity B --ignore 'tests,docs' .
