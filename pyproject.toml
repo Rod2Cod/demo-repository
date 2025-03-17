@@ -13,8 +13,10 @@ dependencies = [
 # Configuration for the radon module, the one that calculates the cyclomatic complexity
 [tool.radon]
 ignore = "tests,docs" #ignores the previous directories, different from exclude
-cc_min = "A"
+cc_min = 'B'
+cc_max = 'F'
 show_complexity = true
+# output_file = ".radon_report.json"
 
 
 # Configuration for the coverage module, the one that calculates the test coverage
