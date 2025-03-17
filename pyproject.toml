@@ -49,6 +49,7 @@ exclude_also = [
     ]
 
 
+fail_under = 80
 skip_covered = false
 show_missing = true
 ignore_errors = true

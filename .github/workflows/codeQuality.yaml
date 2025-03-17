@@ -23,6 +23,7 @@ jobs:
     - name: Run tests with coverage
       run: |
         coverage run -m pytest
+        coverage report
 
     - name: Check ciclomatic complexity
       run: |
