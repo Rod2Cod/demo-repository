@@ -25,6 +25,6 @@ jobs:
         coverage run -m pytest
         coverage report
     
-    - name: Run xenon to check coclomatic complexity
+    - name: Run xenon to check ciclomatic complexity
       run: |
         xenon --max-absolute B --max-average A .
