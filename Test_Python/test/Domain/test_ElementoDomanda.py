@@ -5,64 +5,68 @@ from app.domain import ElementoDomanda,Domanda,Risposta
 
 domanda = "Qual è la capitale d'Italia?"
 
-@pytest.fixture
-def domanda_fixture():
-    return Domanda(domanda)
+class TestDomanda:
 
-def test_get_text(domanda_fixture):  
-    """Test per il metodo getText."""
-    assert domanda_fixture.getText() == domanda
+    @pytest.fixture(autouse=True)
+    def domanda_fixture(self):
+        self.domanda = Domanda(domanda)
 
-def test_set_text(domanda_fixture):
-    """Test per il metodo setText."""
-    domanda_fixture.setText("Qual è la capitale della Francia?")
-    assert domanda_fixture.getText() == "Qual è la capitale della Francia?"
+    def test_get_text(self):  
+        """Test per il metodo getText."""
+        assert self.domanda.getText() == domanda
 
+    def test_set_text(self):
+        """Test per il metodo setText."""
+        self.domanda.setText("Qual è la capitale della Francia?")
+        assert self.domanda.getText() == "Qual è la capitale della Francia?"
+        
 # TEST RISPOSTA
 
 risposta = "Roma"
 
-@pytest.fixture
-def risposta_fixture():
-    return Risposta(risposta)
+class TestRisposta:
+    
+    @pytest.fixture(autouse=True)
+    def risposta_fixture(self):
+        self.risposta = Risposta(risposta)
 
-def test_get_text(risposta_fixture):
-    """Test per il metodo getText."""
-    assert risposta_fixture.getText() == risposta
+    def test_get_text(self):  
+        """Test per il metodo getText."""
+        assert self.risposta.getText() == risposta
 
-def test_set_text(risposta_fixture):
-    """Test per il metodo setText."""
-    risposta_fixture.setText("Parigi")
-    assert risposta_fixture.getText() == "Parigi"
+    def test_set_text(self):
+        """Test per il metodo setText."""
+        self.risposta.setText("Parigi")
+        assert self.risposta.getText() == "Parigi"
 
 # TEST ELEMENTO DOMANDA
 
 id = 1
 
-@pytest.fixture
-def elemento():
-    return ElementoDomanda(domanda, risposta, id)
+class TestElementoDomanda:
 
-def test_get_id(elemento):
-    """Test per il metodo getId."""
-    assert elemento.getId() == id
+    @pytest.fixture(autouse=True)
+    def elemento_domanda_fixture(self):
+        self.elemento_domanda = ElementoDomanda(domanda, risposta, id)
 
-def test_get_domanda(elemento):
-    """Test per il metodo getDomanda."""
-    assert elemento.getDomanda().getText() == domanda
+    def test_get_id(self):  
+        """Test per il metodo getId."""
+        assert self.elemento_domanda.getId() == id
 
-def test_get_risposta(elemento):
-    """Test per il metodo getRisposta."""
-    assert elemento.getRisposta().getText() == risposta
+    def test_get_domanda(self):  
+        """Test per il metodo getDomanda."""
+        assert self.elemento_domanda.getDomanda().getText() == domanda
 
-def test_set_domanda(elemento):
-    """Test per il metodo setDomanda."""
-    newTextDomanda = "Qual è la capitale della Francia?"
-    elemento.setDomanda(newTextDomanda)
-    assert elemento.getDomanda().getText() == newTextDomanda
+    def test_get_risposta(self):  
+        """Test per il metodo getRisposta."""
+        assert self.elemento_domanda.getRisposta().getText() == risposta
 
-def test_set_risposta(elemento):
-    """Test per il metodo setRisposta."""
-    newTextRisposta = "Parigi"
-    elemento.setRisposta(newTextRisposta)
-    assert elemento.getRisposta().getText() == newTextRisposta
+    def test_set_domanda(self):
+        """Test per il metodo setDomanda."""
+        self.elemento_domanda.setDomanda("Qual è la capitale della Francia?")
+        assert self.elemento_domanda.getDomanda().getText() == "Qual è la capitale della Francia?"
+
+    def test_set_risposta(self):
+        """Test per il metodo setRisposta."""
+        self.elemento_domanda.setRisposta("Parigi")
+        assert self.elemento_domanda.getRisposta().getText() == "Parigi"

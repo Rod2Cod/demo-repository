@@ -7,32 +7,34 @@ elemento3 = ElementoDomanda("Qual è la capitale della Spagna?", "Madrid", 3)
 elemento4 = ElementoDomanda("Qual è la capitale della Germania?", "Berlino", 4)
 elemento5 = ElementoDomanda("Qual è la capitale del Portogallo?", "Lisbona", 5)
 
-elementi = {elemento1, elemento2, elemento3, elemento1}
+elementi = {elemento1, elemento2, elemento3}
+newElementi = {elemento4, elemento5}
 nome = "Set1"
+newNome = "Set2"
 
-@pytest.fixture
-def setElementi():
-    return SetElementiDomanda(elementi, nome)
+class TestSetElementiDomanda:
 
-def test_get_elementi(setElementi):
-    """Test per il metodo getElementi."""
-    assert setElementi.getElementi() == elementi
+    @pytest.fixture(autouse=True)
+    def set_elementi_domanda_fixture(self):
+        self.set_elementi_domanda = SetElementiDomanda(elementi=elementi, nome=nome)
 
-def test_get_nome(setElementi):
-    """Test per il metodo getNome."""
-    assert setElementi.getNome() == nome
+    def test_get_elementi(self):
+        """Test per il metodo getElementi."""
+        assert self.set_elementi_domanda.getElementi() == elementi
 
-def test_update_elementi(setElementi):
-    """Test per il metodo updateElementi."""
-    newElementi = {elemento4, elemento5}
-    setElementi.updateElementi(newElementi)
-    assert setElementi.getElementi() == newElementi
+    def test_get_nome(self):
+        """Test per il metodo getNome."""
+        assert self.set_elementi_domanda.getNome() == nome
 
-def test_set_nome(setElementi):
-    """Test per il metodo setNome."""
-    newNome = "Set2"
-    setElementi.setNome(newNome)
-    assert setElementi.getNome() == newNome
+    def test_update_elementi(self):
+        """Test per il metodo updateElementi."""
+        self.set_elementi_domanda.updateElementi(newElementi)
+        assert self.set_elementi_domanda.getElementi() == newElementi
 
-def test_domanda_associata(setElementi):
-    assert elemento1 in setElementi.getElementi()
+    def test_set_nome(self):
+        """Test per il metodo setNome."""
+        self.set_elementi_domanda.setNome(newNome)
+        assert self.set_elementi_domanda.getNome() == newNome
+
+    def test_domanda_associata(self):
+        assert elemento1 in self.set_elementi_domanda.getElementi()
