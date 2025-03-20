@@ -4,8 +4,9 @@
         "--cov=Test_Python/test",
         "--cov-report=xml",
         "--pdb",
-        "Test_Python"
+        "Test_Python/test"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "python.envFile": "${workspaceFolder}/.env"
 }

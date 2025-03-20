@@ -10,33 +10,35 @@ rispostaLLM = "Roma"
 score = 1.0
 metriche = {"metrica1": 0.5, "metrica2": 0.5}
 
-@pytest.fixture
-def risultato_singola_domanda():
-    return RisultatoSingolaDomanda(id, domanda, risposta, rispostaLLM, score, metriche)
+class TestRisultatoSingolaDomanda:
 
-def test_get_id_risultatoSingolaDomanda(risultato_singola_domanda):
-    """Test per il metodo getId."""
-    assert risultato_singola_domanda.getId() == id
+    @pytest.fixture
+    def risultato_singola_domanda_fixture(self):
+        self.risultato_singola_domanda = RisultatoSingolaDomanda(id, domanda, risposta, rispostaLLM, score, metriche)
 
-def test_get_domanda(risultato_singola_domanda):
-    """Test per il metodo getDomanda."""
-    assert risultato_singola_domanda.getDomanda() == domanda
+    def test_get_id_risultatoSingolaDomanda(self):
+        """Test per il metodo getId."""
+        assert self.risultato_singola_domanda.getId() == id
 
-def test_get_risposta(risultato_singola_domanda):
-    """Test per il metodo getRisposta."""
-    assert risultato_singola_domanda.getRisposta() == risposta
+    def test_get_domanda(self):
+        """Test per il metodo getDomanda."""
+        assert self.risultato_singola_domanda.getDomanda() == domanda
 
-def test_get_risposta_llm(risultato_singola_domanda):
-    """Test per il metodo getRispostaLLM."""
-    assert risultato_singola_domanda.getRispostaLLM() == rispostaLLM
+    def test_get_risposta(self):
+        """Test per il metodo getRisposta."""
+        assert self.risultato_singola_domanda.getRisposta() == risposta
 
-def test_get_scoreRisultatoSingolaDomanda(risultato_singola_domanda):
-    """Test per il metodo getScore."""
-    assert risultato_singola_domanda.getScore() == score
+    def test_get_risposta_llm(self):
+        """Test per il metodo getRispostaLLM."""
+        assert self.risultato_singola_domanda.getRispostaLLM() == rispostaLLM
 
-def test_get_metriche(risultato_singola_domanda):
-    """Test per il metodo getMetriche."""
-    assert risultato_singola_domanda.getMetriche() == metriche
+    def test_get_scoreRisultatoSingolaDomanda(self):
+        """Test per il metodo getScore."""
+        assert self.risultato_singola_domanda.getScore() == score
+
+    def test_get_metriche(self):
+        """Test per il metodo getMetriche."""
+        assert self.risultato_singola_domanda.getMetriche() == metriche
 
 # TEST RISULTATO TEST
 
