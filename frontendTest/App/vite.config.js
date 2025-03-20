@@ -13,7 +13,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'html', 'json-summary'], // 'text' genera l'output su stdout
+      // Altri parametri a tua scelta, come 'exclude', 'include', etc.
     },
   },
   resolve: {

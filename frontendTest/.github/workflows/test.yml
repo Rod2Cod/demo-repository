@@ -1,0 +1,39 @@
+name: Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Installa dipendenze
+        run: |
+          cd App
+          npm install
+
+      - name: Esegui coverage
+        run: |
+          cd App
+          # Vitest scrive il report su stdout in formato "text"
+          # e lo reindirizziamo in coverage.txt
+          npx vitest --coverage > coverage.txt
+
+      - name: Prepend coverage to readme
+        run: node .github/scripts/prepend-coverage.js
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add readme.md
+          git commit -m "Aggiorna coverage in readme [skip ci]" || echo "Nessuna modifica"
+          git push

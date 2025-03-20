@@ -1,3 +1,7 @@
+<!-- COVERAGE-START -->
+Coverage Totale: **98.36%**
+<!-- COVERAGE-END -->
+
 # Avvio dell'Applicazione Vue.js e Test con Docker e Node.js
 
 Guida su come avviare l'applicazione, eseguire test e visualizzare i report di coverage del codice utilizzando Docker o Node.js.
@@ -149,3 +153,12 @@ open coverage/index.html
 | Linux                 | `xdg-open coverage/index.html` | Apre il report di coverage.                     | [`App/coverage/index.html`](./App/coverage/index.html)               |
 | Windows               | `start coverage\index.html`   | Apre il report di coverage.                     | [`App/coverage/index.html`](./App/coverage/index.html)               |
 | MacOS                 | `open coverage/index.html`     | Apre il report di coverage.                     | [`App/coverage/index.html`](./App/coverage/index.html)               |
+## Code Coverage Report
+```json
+{
+  "statements": null,
+  "branches": null,
+  "functions": null,
+  "lines": null
+}
+```
