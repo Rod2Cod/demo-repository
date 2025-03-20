@@ -12,8 +12,7 @@ metriche = {"metrica1": 0.5, "metrica2": 0.5}
 
 class TestRisultatoSingolaDomanda:
 
-    @pytest.fixture
-    def risultato_singola_domanda_fixture(self):
+    def setup_method(self):
         self.risultato_singola_domanda = RisultatoSingolaDomanda(id, domanda, risposta, rispostaLLM, score, metriche)
 
     def test_get_id_risultatoSingolaDomanda(self):

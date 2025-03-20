@@ -6,9 +6,7 @@ from app.domain import ElementoDomanda,Domanda,Risposta
 domanda = "Qual è la capitale d'Italia?"
 
 class TestDomanda:
-
-    @pytest.fixture(autouse=True)
-    def domanda_fixture(self):
+    def setup_method(self):
         self.domanda = Domanda(domanda)
 
     def test_get_text(self):  

@@ -14,8 +14,7 @@ newNome = "Set2"
 
 class TestSetElementiDomanda:
 
-    @pytest.fixture(autouse=True)
-    def set_elementi_domanda_fixture(self):
+    def setup_method(self):
         self.set_elementi_domanda = SetElementiDomanda(elementi=elementi, nome=nome)
 
     def test_get_elementi(self):
