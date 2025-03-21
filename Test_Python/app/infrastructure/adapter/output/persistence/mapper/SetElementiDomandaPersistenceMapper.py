@@ -1,6 +1,6 @@
 from app.domain import SetElementiDomanda
-from app.infrastructure.adapter.out.persistence.domain import SetElementiDomandaEntity
-from app.infrastructure.adapter.out.persistence.mapper import ElementoDomandaPersistenceMapper
+from app.infrastructure.adapter.output.persistence.domain import SetElementiDomandaEntity
+from app.infrastructure.adapter.output.persistence.mapper import ElementoDomandaPersistenceMapper
 
 class SetElementiDomandaPersistenceMapper:
     def __init__(self):
@@ -12,4 +12,4 @@ class SetElementiDomandaPersistenceMapper:
 
     def toSetElementiDomandaEntity(self, setElementi: SetElementiDomanda) -> SetElementiDomandaEntity:
         return SetElementiDomandaEntity(nome=setElementi.getNome(), 
-                                        elementi=set([self.__mapperElementoDomanda.toElementoDomandaEntity(elemento) for elemento in setElementi.getElementi()]))
+                                        elementi=[self.__mapperElementoDomanda.toElementoDomandaEntity(elemento) for elemento in setElementi.getElementi()])

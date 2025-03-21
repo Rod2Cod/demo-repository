@@ -25,14 +25,8 @@ class DeleteElementoDomandaPort(ABC):
     def deleteElementoDomandaById(self, idElemento: int) -> bool:
         pass
     
-class UpdateDomandaElementoDomandaPort(ABC):
+class UpdateElementoDomandaPort(ABC):
 
     @abstractmethod
-    def updateDomandaElementoDomanda(self, idElemento: int, domanda: str) -> bool:
-        pass
-    
-class UpdateRispostaElementoDomandaPort(ABC):
-
-    @abstractmethod
-    def updateRispostaElementoDomanda(self, idElemento: int, risposta: str) -> bool:
+    def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> bool:
         pass

@@ -1,4 +1,4 @@
-from app.infrastructure.adapter.out.persistence.domain import RisultatoTestEntity
+from app.infrastructure.adapter.output.persistence.domain import RisultatoTestEntity
 
 class RisultatoTestPostgreSQLRepository:
     def __init__(self, db):

@@ -1,4 +1,4 @@
-from app.infrastructure.adapter.out.persistence.domain import ElementoDomandaEntity, SetElementiDomandaEntity, RisultatoTestEntity, RisultatoSingolaDomandaEntity
+from app.infrastructure.adapter.output.persistence.domain import ElementoDomandaEntity, SetElementiDomandaEntity, RisultatoTestEntity, RisultatoSingolaDomandaEntity
 
 class RisultatoSingolaDomandaPostgreSQLRepository:
     def __init__(self, db):

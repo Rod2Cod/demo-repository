@@ -1,6 +1,6 @@
-from app.application.ports.out import SaveSetElementiDomandaPort, DeleteSetElementiDomandaPort, GetSetElementiDomandaPort, GetAllSetElementiDomandaPort, EditNomeSetElementiDomandaPort, UpdateElementiDomandaSetPort
+from app.application.ports.output import SaveSetElementiDomandaPort, DeleteSetElementiDomandaPort, GetSetElementiDomandaPort, GetAllSetElementiDomandaPort, EditNomeSetElementiDomandaPort, UpdateElementiDomandaSetPort
 from app.domain import ElementoDomanda, SetElementiDomanda
-from app.infrastructure.adapter.out.persistence.mapper import SetElementiDomandaPersistenceMapper, ElementoDomandaPersistenceMapper
+from app.infrastructure.adapter.output.persistence.mapper import SetElementiDomandaPersistenceMapper, ElementoDomandaPersistenceMapper
 
 class SetElementiDomandaPersistenceAdapter(
     SaveSetElementiDomandaPort, DeleteSetElementiDomandaPort, GetSetElementiDomandaPort, GetAllSetElementiDomandaPort, EditNomeSetElementiDomandaPort, UpdateElementiDomandaSetPort

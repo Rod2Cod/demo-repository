@@ -1,4 +1,4 @@
-from app.infrastructure.adapter.out.persistence.Extensions import db
+from app.infrastructure.adapter.output.persistence.Extensions import db
 
 class SetElementiDomandaEntity(db.Model):
     __tablename__ = 'set_elementi_domanda'

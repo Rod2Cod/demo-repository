@@ -1,6 +1,6 @@
-from app.infrastructure.adapter.out.persistence.domain import ElementoDomandaEntity, SetElementiDomandaEntity, RisultatoTestEntity, RisultatoSingolaDomandaEntity
+from app.infrastructure.adapter.output.persistence.domain import ElementoDomandaEntity, SetElementiDomandaEntity, RisultatoTestEntity, RisultatoSingolaDomandaEntity
 
-class PostgreSQLRepository:
+class ElementoDomandaPostgreSQLRepository:
     def __init__(self, db):
         self.__db = db
 
@@ -27,20 +27,12 @@ class PostgreSQLRepository:
     def loadAllElementiDomanda(self) -> set[ElementoDomandaEntity]:
         return set(ElementoDomandaEntity.query.all())
     
-    def updateDomandaElementoDomanda(self, idElemento: int, domanda: str) -> bool:
+    def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> bool:
         try:
             elemento = ElementoDomandaEntity.query.filter_by(id=idElemento).first()
             elemento.domanda = domanda
+            elemento.ristposta = risposta
             self.__db.session.commit()
             return True
         except:
             return False
-    
-    def updateRispostaElementoDomanda(self, idElemento: int, risposta: str) -> bool:
-        try:
-            elemento = ElementoDomandaEntity.query.filter_by(id=idElemento).first()
-            elemento.risposta = risposta
-            self.__db.session.commit()
-            return True
-        except:
-            return False    

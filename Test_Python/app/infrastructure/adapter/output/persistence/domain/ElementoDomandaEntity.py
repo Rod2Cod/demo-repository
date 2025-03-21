@@ -1,4 +1,4 @@
-from app.infrastructure.adapter.out.persistence.Extensions import db
+from app.infrastructure.adapter.output.persistence.Extensions import db
 
 class ElementoDomandaEntity(db.Model):
     __tablename__ = 'elemento_domanda'

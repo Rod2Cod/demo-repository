@@ -1,9 +1,9 @@
-from app.application.ports.out import SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementoDomandaPort, GetAllElementiDomandaPort, UpdateDomandaElementoDomandaPort, UpdateRispostaElementoDomandaPort
+from app.application.ports.output import SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementoDomandaPort, GetAllElementiDomandaPort, UpdateElementoDomandaPort
 from app.domain import ElementoDomanda
-from app.infrastructure.adapter.out.persistence.mapper import ElementoDomandaPersistenceMapper
+from app.infrastructure.adapter.output.persistence.mapper import ElementoDomandaPersistenceMapper
 
 class ElementoDomandaPersistenceAdapter(
-    SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementoDomandaPort, GetAllElementiDomandaPort, UpdateDomandaElementoDomandaPort, UpdateRispostaElementoDomandaPort
+    SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementoDomandaPort, GetAllElementiDomandaPort, UpdateElementoDomandaPort
 ):
     def __init__(self, repository):
         self.__repository = repository
@@ -21,8 +21,5 @@ class ElementoDomandaPersistenceAdapter(
     def getAllElementiDomanda(self) -> set[ElementoDomanda]:
         return {self.__mapper.fromElementoDomandaEntity(x) for x in self.__repository.loadAllElementiDomanda()}
 
-    def updateDomandaElementoDomanda(self, idElemento: int, domanda: str) -> bool:
-        self.__repository.updateDomandaElementoDomanda(idElemento, domanda)
-
-    def updateRispostaElementoDomanda(self, idElemento: int, risposta: str) -> bool:
-        self.__repository.updateRispostaElementoDomanda(idElemento, risposta)
+    def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> bool:
+        self.__repository.updateElementoDomanda(idElemento, domanda, risposta)
