@@ -12474,7 +12474,7 @@
 												"$ref": "AAAAAAGVa9b2Uuc8A1I="
 											},
 											"name": "nome",
-											"type": "String"
+											"type": "str"
 										}
 									]
 								},
@@ -12679,7 +12679,7 @@
 												"$ref": "AAAAAAGVa9b2UucVftc="
 											},
 											"name": "id",
-											"type": "Integer"
+											"type": "int"
 										},
 										{
 											"_type": "UMLParameter",
@@ -12687,8 +12687,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGVa9b2UucVftc="
 											},
-											"name": "String Domanda",
-											"type": ""
+											"name": "strDomanda"
 										},
 										{
 											"_type": "UMLParameter",
@@ -12696,8 +12695,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGVa9b2UucVftc="
 											},
-											"name": "String Risposta",
-											"type": ""
+											"name": "strRisposta"
 										}
 									]
 								},
@@ -12777,7 +12775,7 @@
 												"$ref": "AAAAAAGVcAsxZ6sjDJo="
 											},
 											"name": "Domanda",
-											"type": "String"
+											"type": "str"
 										},
 										{
 											"_type": "UMLParameter",
@@ -12805,7 +12803,7 @@
 												"$ref": "AAAAAAGVcAxBR7j3mO8="
 											},
 											"name": "Risposta",
-											"type": "String"
+											"type": "str"
 										},
 										{
 											"_type": "UMLParameter",
@@ -13184,7 +13182,7 @@
 												"$ref": "AAAAAAGVdT22z7npSe0="
 											},
 											"name": "Domanda",
-											"type": "String"
+											"type": "str"
 										},
 										{
 											"_type": "UMLParameter",
@@ -13204,7 +13202,7 @@
 												"$ref": "AAAAAAGVdT22z7npSe0="
 											},
 											"name": "Risposta",
-											"type": "String"
+											"type": "str"
 										}
 									]
 								}
@@ -15728,7 +15726,8 @@
 											"_parent": {
 												"$ref": "AAAAAAGVo8rGiH45kZM="
 											},
-											"name": "id; int"
+											"name": "id; int",
+											"type": ""
 										},
 										{
 											"_type": "UMLParameter",
@@ -16210,7 +16209,7 @@
 										"$ref": "AAAAAAGVqQKHhnZ6kvw="
 									},
 									"name": "LLM",
-									"type": "String"
+									"type": "str"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -16414,7 +16413,7 @@
 												"$ref": "AAAAAAGVheGamAbO0mU="
 											},
 											"name": "risposta",
-											"type": "String"
+											"type": "str"
 										},
 										{
 											"_type": "UMLParameter",
@@ -16423,7 +16422,7 @@
 												"$ref": "AAAAAAGVheGamAbO0mU="
 											},
 											"name": "rispostaLLM",
-											"type": "String"
+											"type": "str"
 										},
 										{
 											"_type": "UMLParameter",
@@ -21005,7 +21004,7 @@
 											"top": 3828,
 											"width": 567.89013671875,
 											"height": 13,
-											"text": "+SetElementiDomanda(Elementi: set<ElementiDomanda>, nome: String)",
+											"text": "+SetElementiDomanda(Elementi: set<ElementiDomanda>, nome: str)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21379,7 +21378,7 @@
 											"top": 4117,
 											"width": 382.17041015625,
 											"height": 13,
-											"text": "+ElementoDomanda(id: Integer, String Domanda, String Risposta)",
+											"text": "+ElementoDomanda(id: int, strDomanda, strRisposta)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21451,7 +21450,7 @@
 											"top": 4177,
 											"width": 382.17041015625,
 											"height": 13,
-											"text": "+setDomanda(Domanda: String): None",
+											"text": "+setDomanda(Domanda: str): None",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21469,7 +21468,7 @@
 											"top": 4192,
 											"width": 382.17041015625,
 											"height": 13,
-											"text": "+setRisposta(Risposta: String): None",
+											"text": "+setRisposta(Risposta: str): None",
 											"horizontalAlignment": 0
 										},
 										{
@@ -22229,7 +22228,7 @@
 											"top": 1689,
 											"width": 537.54833984375,
 											"height": 13,
-											"text": "+saveElementoDomanda(Domanda: String, Risposta: String): ElementoDomanda",
+											"text": "+saveElementoDomanda(Domanda: str, Risposta: str): ElementoDomanda",
 											"horizontalAlignment": 0
 										}
 									],
@@ -26417,7 +26416,7 @@
 											"top": 2221,
 											"width": 154.8544921875,
 											"height": 13,
-											"text": "-domanda: String",
+											"text": "-domanda: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -26435,7 +26434,7 @@
 											"top": 2236,
 											"width": 154.8544921875,
 											"height": 13,
-											"text": "-risposta: String",
+											"text": "-risposta: str",
 											"horizontalAlignment": 0
 										}
 									],
@@ -26641,7 +26640,7 @@
 											"top": 2198,
 											"width": 238.01513671875,
 											"height": 13,
-											"text": "-nome: String",
+											"text": "-nome: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -57601,7 +57600,7 @@
 											"top": 3044,
 											"width": 176.21435546875,
 											"height": 13,
-											"text": "+makeQuestion(String): str",
+											"text": "+makeQuestion(str): str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58301,7 +58300,7 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1623,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
 											"text": "ElementoDomandaRepository"
 										},
@@ -58339,7 +58338,7 @@
 									"parentStyle": true,
 									"left": 5992,
 									"top": 1616,
-									"width": 481.10107421875,
+									"width": 521.52294921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGVpA1GxeeJDoE="
@@ -58367,7 +58366,7 @@
 									"parentStyle": true,
 									"left": 5992,
 									"top": 1641,
-									"width": 481.10107421875,
+									"width": 521.52294921875,
 									"height": 10
 								},
 								{
@@ -58393,9 +58392,9 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1656,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
-											"text": "+saveElementoDomanda(elemento: ElementoDomandaEntity): bool",
+											"text": "+saveElementoDomanda(elemento: ElementoDomandaEntity): ElementoDomandaEntity",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58411,7 +58410,7 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1671,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
 											"text": "+loadElementoDomandaById(id: int): ElementoDomandaEntity",
 											"horizontalAlignment": 0
@@ -58429,7 +58428,7 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1686,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
 											"text": "+loadAllElementiDomanda(): set<ElementiDomandaEntity>",
 											"horizontalAlignment": 0
@@ -58447,9 +58446,9 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1701,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
-											"text": "+deleteElementiDomandaById(Ids: set<int>): bool",
+											"text": "+deleteElementiDomandaById(Ids: set<int>): None",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58465,9 +58464,9 @@
 											"parentStyle": true,
 											"left": 5997,
 											"top": 1716,
-											"width": 471.10107421875,
+											"width": 511.52294921875,
 											"height": 13,
-											"text": "+updateElementoDomanda(idElemento: int, domanda: str, risposta: str): bool",
+											"text": "+updateElementoDomanda(idElemento: int, domanda: str, risposta: str): None",
 											"horizontalAlignment": 0
 										}
 									],
@@ -58475,7 +58474,7 @@
 									"parentStyle": true,
 									"left": 5992,
 									"top": 1651,
-									"width": 481.10107421875,
+									"width": 521.52294921875,
 									"height": 83
 								},
 								{
@@ -58518,7 +58517,7 @@
 							"containerChangeable": true,
 							"left": 5992,
 							"top": 1616,
-							"width": 480.10107421875,
+							"width": 520.52294921875,
 							"height": 118,
 							"nameCompartment": {
 								"$ref": "AAAAAAGVpA1GxeeIoR0="
@@ -58579,7 +58578,7 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2607,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
 											"text": "SetElementiDomandaRepository"
 										},
@@ -58617,7 +58616,7 @@
 									"parentStyle": true,
 									"left": 6016,
 									"top": 2600,
-									"width": 538.15380859375,
+									"width": 544.65380859375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGVpA4aFN2lT8c="
@@ -58645,7 +58644,7 @@
 									"parentStyle": true,
 									"left": 6016,
 									"top": 2625,
-									"width": 538.15380859375,
+									"width": 544.65380859375,
 									"height": 10
 								},
 								{
@@ -58671,9 +58670,9 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2640,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
-											"text": "+saveSetElementiDomanda(set: SetElementiDomandaEntity): bool",
+											"text": "+saveSetElementiDomanda(set: SetElementiDomandaEntity): SetElementiDomandaEntity",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58689,7 +58688,7 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2655,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
 											"text": "+loadSetElementiDomandaByNome(nome: str): SetElementiDomandaEntity",
 											"horizontalAlignment": 0
@@ -58707,7 +58706,7 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2670,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
 											"text": "+loadAllSetElementiDomanda(): set<SetElementiDomandaEntity>",
 											"horizontalAlignment": 0
@@ -58725,9 +58724,9 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2685,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
-											"text": "+deleteSetElementiDomandaByNome(nome: str): bool",
+											"text": "+deleteSetElementiDomandaByNome(nome: str): None",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58743,9 +58742,9 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2700,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
-											"text": "+updateSetElementiDomandaNome(nome: str, newNome: str): bool",
+											"text": "+updateSetElementiDomandaNome(nome: str, newNome: str): None",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58761,9 +58760,9 @@
 											"parentStyle": true,
 											"left": 6021,
 											"top": 2715,
-											"width": 528.15380859375,
+											"width": 534.65380859375,
 											"height": 13,
-											"text": "+updateElementiDomandaAssociati(nomeSet: str, elementi: set<ElementoDomanda>): bool",
+											"text": "+updateElementiDomandaAssociati(nomeSet: str, elementi: set<ElementoDomanda>): None",
 											"horizontalAlignment": 0
 										}
 									],
@@ -58771,7 +58770,7 @@
 									"parentStyle": true,
 									"left": 6016,
 									"top": 2635,
-									"width": 538.15380859375,
+									"width": 544.65380859375,
 									"height": 98
 								},
 								{
@@ -58814,7 +58813,7 @@
 							"containerChangeable": true,
 							"left": 6016,
 							"top": 2600,
-							"width": 537.15380859375,
+							"width": 543.65380859375,
 							"height": 133,
 							"nameCompartment": {
 								"$ref": "AAAAAAGVpA4aFN2k4ic="
@@ -58875,7 +58874,7 @@
 											"parentStyle": true,
 											"left": 5981,
 											"top": 3599,
-											"width": 286.04150390625,
+											"width": 368.39599609375,
 											"height": 13,
 											"text": "RisultatoTestRepository"
 										},
@@ -58913,7 +58912,7 @@
 									"parentStyle": true,
 									"left": 5976,
 									"top": 3592,
-									"width": 296.04150390625,
+									"width": 378.39599609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGVpA5VzBLZcMU="
@@ -58941,7 +58940,7 @@
 									"parentStyle": true,
 									"left": 5976,
 									"top": 3617,
-									"width": 296.04150390625,
+									"width": 378.39599609375,
 									"height": 10
 								},
 								{
@@ -58967,9 +58966,9 @@
 											"parentStyle": true,
 											"left": 5981,
 											"top": 3632,
-											"width": 286.04150390625,
+											"width": 368.39599609375,
 											"height": 13,
-											"text": "+saveRisultatoTest(test: RisultatoTestEntity): bool",
+											"text": "+saveRisultatoTest(test: RisultatoTestEntity): RisultatoTestEntity",
 											"horizontalAlignment": 0
 										},
 										{
@@ -58985,7 +58984,7 @@
 											"parentStyle": true,
 											"left": 5981,
 											"top": 3647,
-											"width": 286.04150390625,
+											"width": 368.39599609375,
 											"height": 13,
 											"text": "+loadRisultatoTestById(id: int): RisultatoTest",
 											"horizontalAlignment": 0
@@ -59003,7 +59002,7 @@
 											"parentStyle": true,
 											"left": 5981,
 											"top": 3662,
-											"width": 286.04150390625,
+											"width": 368.39599609375,
 											"height": 13,
 											"text": "+loadAllRisultatoTest(): set<RisultatoTestEntity>",
 											"horizontalAlignment": 0
@@ -59013,7 +59012,7 @@
 									"parentStyle": true,
 									"left": 5976,
 									"top": 3627,
-									"width": 296.04150390625,
+									"width": 378.39599609375,
 									"height": 53
 								},
 								{
@@ -59056,7 +59055,7 @@
 							"containerChangeable": true,
 							"left": 5976,
 							"top": 3592,
-							"width": 295.04150390625,
+							"width": 377.39599609375,
 							"height": 88,
 							"nameCompartment": {
 								"$ref": "AAAAAAGVpA5VzBLYOkI="
@@ -59818,7 +59817,7 @@
 							"tail": {
 								"$ref": "AAAAAAGVpA5VzBLX7aA="
 							},
-							"points": "6271:3636;7040:3636;7040:3000;6950:3000",
+							"points": "6353:3636;7040:3636;7040:3000;6950:3000",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGVpHhUs+vlhEk="
@@ -66891,7 +66890,7 @@
 											"top": 4000,
 											"width": 256.4677734375,
 											"height": 13,
-											"text": "+uploadFileDomande(path: String): Boolean",
+											"text": "+uploadFileDomande(path: str): bool",
 											"horizontalAlignment": 0
 										}
 									],
@@ -67097,7 +67096,7 @@
 											"top": 3888,
 											"width": 222.4951171875,
 											"height": 13,
-											"text": "+uploadFileTest(path: String): Boolean",
+											"text": "+uploadFileTest(path: str): bool",
 											"horizontalAlignment": 0
 										}
 									],
@@ -67857,7 +67856,7 @@
 											"top": 3854,
 											"width": 280.03662109375,
 											"height": 13,
-											"text": "+LLM: String",
+											"text": "+LLM: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -68120,7 +68119,7 @@
 											"top": 4038,
 											"width": 143.0478515625,
 											"height": 13,
-											"text": "+Domanda: String",
+											"text": "+Domanda: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -68138,7 +68137,7 @@
 											"top": 4053,
 											"width": 143.0478515625,
 											"height": 13,
-											"text": "+RispostaAttesa: String",
+											"text": "+RispostaAttesa: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -68156,7 +68155,7 @@
 											"top": 4068,
 											"width": 143.0478515625,
 											"height": 13,
-											"text": "+RispostaLLM: String",
+											"text": "+RispostaLLM: str",
 											"horizontalAlignment": 0
 										},
 										{
@@ -68210,7 +68209,7 @@
 											"top": 4113,
 											"width": 143.0478515625,
 											"height": 13,
-											"text": "+Metrica2: Float",
+											"text": "+Metrica2: float",
 											"horizontalAlignment": 0
 										},
 										{
@@ -68228,7 +68227,7 @@
 											"top": 4128,
 											"width": 143.0478515625,
 											"height": 13,
-											"text": "+Metrica3: Float",
+											"text": "+Metrica3: float",
 											"horizontalAlignment": 0
 										}
 									],
@@ -69360,7 +69359,7 @@
 											"top": 3749,
 											"width": 219.34033203125,
 											"height": 13,
-											"text": "+addTest(RisultatoTestDTO): Boolean",
+											"text": "+addTest(RisultatoTestDTO): bool",
 											"horizontalAlignment": 0
 										}
 									],
@@ -71053,7 +71052,7 @@
 											"top": 2936,
 											"width": 440.6767578125,
 											"height": 13,
-											"text": "+evaluate(risposta: String, rispostaLLM: String): dict<metrica_&_score> float",
+											"text": "+evaluate(risposta: str, rispostaLLM: str): dict<metrica_&_score> float",
 											"horizontalAlignment": 0
 										}
 									],
@@ -74233,7 +74232,7 @@
 							},
 							"name": "domanda",
 							"visibility": "private",
-							"type": "String"
+							"type": "str"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -74243,7 +74242,7 @@
 							},
 							"name": "risposta",
 							"visibility": "private",
-							"type": "String"
+							"type": "str"
 						}
 					]
 				},
@@ -74263,7 +74262,7 @@
 							},
 							"name": "nome",
 							"visibility": "private",
-							"type": "String"
+							"type": "str"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -77855,7 +77854,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVa9b2UudlW04="
 									},
-									"name": "String"
+									"name": "str"
 								},
 								{
 									"_type": "UMLParameter",
@@ -77922,7 +77921,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG2MsA0nOOI="
 									},
-									"type": "bool",
+									"type": {
+										"$ref": "AAAAAAGVcTyaHmMoa10="
+									},
 									"direction": "return"
 								}
 							]
@@ -77999,7 +78000,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG2d2CgUFgU="
 									},
-									"type": "bool",
+									"type": "None",
 									"direction": "return"
 								}
 							]
@@ -78036,7 +78037,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG3aKH9ltyo="
 									},
-									"type": "bool",
+									"type": "None",
 									"direction": "return"
 								},
 								{
@@ -78085,7 +78086,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG42scsPmxQ="
 									},
-									"type": "bool",
+									"type": {
+										"$ref": "AAAAAAGVfRuL7sEOYvc="
+									},
 									"direction": "return"
 								}
 							]
@@ -78162,7 +78165,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG6amSVGq9M="
 									},
-									"type": "bool",
+									"type": "None",
 									"direction": "return"
 								}
 							]
@@ -78199,7 +78202,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG9piIbEExA="
 									},
-									"type": "bool",
+									"type": "None",
 									"direction": "return"
 								}
 							]
@@ -78236,7 +78239,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG9+cKJtJHo="
 									},
-									"type": "bool",
+									"type": "None",
 									"direction": "return"
 								}
 							]
@@ -78304,7 +78307,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG/kUdj5XuE="
 									},
-									"type": "bool",
+									"type": {
+										"$ref": "AAAAAAGVfRuQ7sOPMNY="
+									},
 									"direction": "return"
 								}
 							]
@@ -78839,7 +78844,7 @@
 										"$ref": "AAAAAAGVqP7Dmy9QFJM="
 									},
 									"name": "path",
-									"type": "String"
+									"type": "str"
 								},
 								{
 									"_type": "UMLParameter",
@@ -78847,7 +78852,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqP7Dmy9QFJM="
 									},
-									"type": "Boolean",
+									"type": "bool",
 									"direction": "return"
 								}
 							]
@@ -78920,7 +78925,7 @@
 										"$ref": "AAAAAAGVqP/TNHPOcGI="
 									},
 									"name": "path",
-									"type": "String"
+									"type": "str"
 								},
 								{
 									"_type": "UMLParameter",
@@ -78928,7 +78933,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqP/TNHPOcGI="
 									},
-									"type": "Boolean",
+									"type": "bool",
 									"direction": "return"
 								}
 							]
@@ -78980,7 +78985,7 @@
 								"$ref": "AAAAAAGVqSJHf1t6nvM="
 							},
 							"name": "Domanda",
-							"type": "String"
+							"type": "str"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -78989,7 +78994,7 @@
 								"$ref": "AAAAAAGVqSJHf1t6nvM="
 							},
 							"name": "RispostaAttesa",
-							"type": "String"
+							"type": "str"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -78998,7 +79003,7 @@
 								"$ref": "AAAAAAGVqSJHf1t6nvM="
 							},
 							"name": "RispostaLLM",
-							"type": "String"
+							"type": "str"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -79025,7 +79030,7 @@
 								"$ref": "AAAAAAGVqSJHf1t6nvM="
 							},
 							"name": "Metrica2",
-							"type": "Float"
+							"type": "float"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -79034,7 +79039,7 @@
 								"$ref": "AAAAAAGVqSJHf1t6nvM="
 							},
 							"name": "Metrica3",
-							"type": "Float"
+							"type": "float"
 						}
 					]
 				},
@@ -79265,8 +79270,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqVeROzgkA3E="
 									},
-									"name": "RisultatoTestDTO",
-									"type": ""
+									"name": "RisultatoTestDTO"
 								},
 								{
 									"_type": "UMLParameter",
@@ -79274,7 +79278,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqVeROzgkA3E="
 									},
-									"type": "Boolean",
+									"type": "bool",
 									"direction": "return"
 								}
 							]
