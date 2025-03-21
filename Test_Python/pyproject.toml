@@ -1,8 +1,14 @@
+[tool.radon]
+ignore = "test"
+cc_min = 'B'
+cc_max = 'F'
+show_complexity = true
+
 [tool.coverage.run]
 branch = true
 omit = [
     ".venv/*",
-    "Test_Python/test/*",
+    "test/*",
     "__init__.py",
     ]
 
@@ -33,9 +39,3 @@ sort = "Cover"
 
 [tool.coverage.json]
 pretty_print = true
-
-[tool.radon.cc]
-min = "B"
-max = "F"
-total_average = true
-ignore = "Test_Python/test"
