@@ -12687,7 +12687,8 @@
 											"_parent": {
 												"$ref": "AAAAAAGVa9b2UucVftc="
 											},
-											"name": "strDomanda"
+											"name": "strDomanda",
+											"type": ""
 										},
 										{
 											"_type": "UMLParameter",
@@ -12695,7 +12696,8 @@
 											"_parent": {
 												"$ref": "AAAAAAGVa9b2UucVftc="
 											},
-											"name": "strRisposta"
+											"name": "strRisposta",
+											"type": ""
 										}
 									]
 								},
@@ -29491,6 +29493,24 @@
 											"height": 13,
 											"text": "+fromElementoDomandaEntity(entity: ElementoDomandaEntity): ElementoDomanda",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGVvgn5Ag3GiNA=",
+											"_parent": {
+												"$ref": "AAAAAAGVmm2EXkyRZaY="
+											},
+											"model": {
+												"$ref": "AAAAAAGVvgn48A2iBc0="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 5821,
+											"top": 2102,
+											"width": 611.98095703125,
+											"height": 13,
+											"text": "+fromDomandaRisposta(domanda: str, risposta: str): ElementoDomandaEntity",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
@@ -29498,7 +29518,7 @@
 									"left": 5816,
 									"top": 2067,
 									"width": 621.98095703125,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -29541,7 +29561,7 @@
 							"left": 5816,
 							"top": 2032,
 							"width": 620.98095703125,
-							"height": 73,
+							"height": 88,
 							"nameCompartment": {
 								"$ref": "AAAAAAGVmm2EXkyLlgo="
 							},
@@ -57060,7 +57080,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 6366,
-									"top": 2133,
+									"top": 2141,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -57082,7 +57102,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 6381,
-									"top": 2133,
+									"top": 2141,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -57104,7 +57124,7 @@
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 6337,
-									"top": 2134,
+									"top": 2142,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -57122,7 +57142,7 @@
 							"tail": {
 								"$ref": "AAAAAAGVmm2EXkyKkRM="
 							},
-							"points": "6352:2105;6352:2176",
+							"points": "6352:2120;6352:2176",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGVpAjdXMMID8k="
@@ -76106,6 +76126,45 @@
 									"direction": "return"
 								}
 							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGVvgn48A2iBc0=",
+							"_parent": {
+								"$ref": "AAAAAAGVmm2EXkyIT5E="
+							},
+							"name": "fromDomandaRisposta",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGVvgpUFBa7bsA=",
+									"_parent": {
+										"$ref": "AAAAAAGVvgn48A2iBc0="
+									},
+									"name": "domanda",
+									"type": "str"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGVvgpUFha8F3g=",
+									"_parent": {
+										"$ref": "AAAAAAGVvgn48A2iBc0="
+									},
+									"name": "risposta",
+									"type": "str"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGVvgpUFxa9vIA=",
+									"_parent": {
+										"$ref": "AAAAAAGVvgn48A2iBc0="
+									},
+									"type": {
+										"$ref": "AAAAAAGVcTyaHmMoa10="
+									},
+									"direction": "return"
+								}
+							]
 						}
 					]
 				},
@@ -77854,7 +77913,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGVa9b2UudlW04="
 									},
-									"name": "str"
+									"name": "str",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -79270,7 +79330,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqVeROzgkA3E="
 									},
-									"name": "RisultatoTestDTO"
+									"name": "RisultatoTestDTO",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
