@@ -1,5 +1,5 @@
 import pytest
-from app.domain import SetElementiDomanda,ElementoDomanda
+from src.domain import SetElementiDomanda,ElementoDomanda
 
 elemento1 = ElementoDomanda("Qual è la capitale d'Italia?", "Roma", 1)
 elemento2 = ElementoDomanda("Qual è la capitale della Francia?", "Parigi", 2)
