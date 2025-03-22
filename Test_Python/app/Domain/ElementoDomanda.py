@@ -1,22 +1,22 @@
 class Domanda:
     def __init__(self, text: str):
-        self.__text = text
+        self.__testo = text
 
     def getText(self) -> str:
-        return self.__text
+        return self.__testo
     
     def setText(self, text: str):
-        self.__text = text
+        self.__testo = text
 
 class Risposta:
     def __init__(self, text: str):
-        self.__text = text
+        self.__testo = text
 
     def getText(self) -> str:
-        return self.__text
+        return self.__testo
     
     def setText(self, text: str):
-        self.__text = text
+        self.__testo = text
 
 class ElementoDomanda:
     def __init__(self, domanda: str, risposta: str, id: int):
@@ -38,3 +38,10 @@ class ElementoDomanda:
 
     def setRisposta(self, risposta: str):
         self.__risposta.setText(risposta)
+        
+    def serialize(self) -> dict:
+        return {
+            "id": self.__id,
+            "domanda": self.__domanda.getText(),
+            "risposta": self.__risposta.getText()
+        }

@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 from app.domain import RisultatoTest, RisultatoSingolaDomanda
+from app.domain.dtos import RisultatoTestDTO
 
 class AddRisultatoTestUseCase(ABC):
     @abstractmethod
-    def addRisultatoTest(self) -> bool:
+    def addRisultatoTest(self, risultatoTestDTO: RisultatoTestDTO) -> bool:
         pass
     
 class GetRisultatoTestUseCase(ABC):

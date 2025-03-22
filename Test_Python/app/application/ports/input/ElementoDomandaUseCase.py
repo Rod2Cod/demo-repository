@@ -21,12 +21,7 @@ class DeleteElementiDomandaUseCase(ABC):
     def deleteElementiDomandaById(self, Ids: set[int]) -> bool:
         pass
     
-class UpdateDomandaElementoDomandaUseCase(ABC):
+class UpdateElementoDomandaUseCase(ABC):
     @abstractmethod
-    def updateDomandaElementoDomanda(self, id: int, domanda: str) -> bool:
-        pass
-    
-class UpdateRispostaElementoDomandaUseCase(ABC):
-    @abstractmethod
-    def updateRispostaElementoDomanda(self, id: int, risposta: str) -> bool:
+    def updateElementoDomanda(self, id: int, domanda: str, risposta: str) -> bool:
         pass

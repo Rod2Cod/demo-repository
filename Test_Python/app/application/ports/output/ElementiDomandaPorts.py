@@ -4,7 +4,7 @@ from app.domain import ElementoDomanda
 class SaveElementoDomandaPort(ABC):
 
     @abstractmethod
-    def saveElementoDomanda(self, elemento: ElementoDomanda) -> bool:
+    def saveElementoDomanda(self, elemento: ElementoDomanda) -> ElementoDomanda:
         pass
     
 class GetElementoDomandaPort(ABC):
@@ -19,10 +19,10 @@ class GetAllElementiDomandaPort(ABC):
     def getAllElementoDomanda(self) -> set[ElementoDomanda]:
         pass
     
-class DeleteElementoDomandaPort(ABC):
+class DeleteElementiDomandaPort(ABC):
 
     @abstractmethod
-    def deleteElementoDomandaById(self, idElemento: int) -> bool:
+    def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
         pass
     
 class UpdateElementoDomandaPort(ABC):

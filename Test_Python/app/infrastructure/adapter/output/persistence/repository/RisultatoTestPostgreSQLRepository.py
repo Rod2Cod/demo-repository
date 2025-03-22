@@ -4,25 +4,18 @@ class RisultatoTestPostgreSQLRepository:
     def __init__(self, db):
         self.__db = db
         
-    def saveRisultatoTest(self, risultatoTestEntity: RisultatoTestEntity) -> bool:
-        try:
-            self.__db.session.add(risultatoTestEntity)
-            self.__db.session.commit()
-            return True
-        except:
-            return False
+    def saveRisultatoTest(self, risultatoTestEntity: RisultatoTestEntity) -> RisultatoTestEntity:
+        self.__db.session.add(risultatoTestEntity)
+        self.__db.session.commit()
+        return risultatoTestEntity
     
     def loadRisultatoTestById(self, idRisultatoTest: int) -> RisultatoTestEntity:
         return RisultatoTestEntity.query.filter_by(id=idRisultatoTest).first()
     
-    def deleteRisultatoTest(self, idRisultatoTest: int) -> bool:
-        try:
-            risultatoTest = RisultatoTestEntity.query.filter_by(id=idRisultatoTest).first()
-            self.__db.session.delete(risultatoTest)
-            self.__db.session.commit()
-            return True
-        except:
-            return False
+    def deleteRisultatoTest(self, idRisultatoTest: int) -> None:
+        risultatoTest = RisultatoTestEntity.query.filter_by(id=idRisultatoTest).first()
+        self.__db.session.delete(risultatoTest)
+        self.__db.session.commit()
     
     def loadAllRisultatiTest(self) -> set[RisultatoTestEntity]:
         return set(RisultatoTestEntity.query.all())

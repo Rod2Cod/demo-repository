@@ -26,6 +26,16 @@ class RisultatoSingolaDomanda:
     
     def getMetriche(self) -> dict[str, float]:
         return self.__metriche
+    
+    def serialize(self) -> dict:
+        return {
+            "id": self.__id,
+            "domanda": self.__domanda,
+            "risposta": self.__risposta,
+            "rispostaLLM": self.__rispostaLLM,
+            "score": self.__score,
+            "metriche": self.__metriche
+        }
 
 class RisultatoTest:
     def __init__(self, id: int, score: float, LLM: str, dataEsecuzione: datetime, nomeSet: str, risultatiDomande: set[RisultatoSingolaDomanda]):
@@ -53,3 +63,13 @@ class RisultatoTest:
     
     def getRisultatiDomande(self) -> set[RisultatoSingolaDomanda]:
         return self.__risultatiDomande
+    
+    def serialize(self) -> dict:
+        return {
+            "id": self.__id,
+            "score": self.__score,
+            "LLM": self.__LLM,
+            "dataEsecuzione": self.__dataEsecuzione,
+            "nomeSet": self.__nomeSet,
+            "risultatiDomande": [risultatoDomanda.serialize() for risultatoDomanda in self.__risultatiDomande]
+        }
