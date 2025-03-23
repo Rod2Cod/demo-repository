@@ -6,7 +6,7 @@ from src.application.ports.SetElementiDomandaPorts import GetAllSetElementiDoman
 from src.domain import RisultatoTest, RisultatoSingolaDomanda
 
 
-# BOZZA DA MATCHARE CON I : Implementazione del caso d'uso per eseguire un test
+# BOZZA DA MATCHARE CON IL TIPO DI RITORNO: Implementazione del caso d'uso per eseguire un test
 class ExecuteTestService(ExecuteTestUseCase):
     def __init__(self,
                  llm: LLMPort,
