@@ -1,43 +1,59 @@
 from src.domain import ElementoDomanda
-from src.application.ports.input import AddElementoDomandaUseCase, GetElementoDomandaUseCase
-from src.application.ports.output import SaveElementoDomandaPort
+from src.application.ports.input import AddElementoDomandaUseCase, GetElementoDomandaUseCase, GetAllElementiDomandaUseCase, DeleteElementiDomandaUseCase, UpdateElementoDomandaUseCase
+from src.application.ports.output import SaveElementoDomandaPort, GetElementoDomandaPort, GetAllElementiDomandaPort, DeleteElementiDomandaPort, UpdateElementoDomandaPort
+
+def validateDomandaRisposta(self, domanda: str, risposta: str):
+        if not(isinstance(domanda, str) and isinstance(risposta, str)) \
+            and (len(domanda) == 0 or len(risposta) == 0):
+            raise ValueError("Domanda e risposta devono essere stringhe non vuote.")
+
+def validateId(self, id: int):
+    if not isinstance(id, int):
+        raise ValueError("Id deve essere un intero.")
+    
+def validateIdSet(ids: set[int]):
+    if(len(ids) == 0):
+        raise ValueError("Il set non può essere vuoto.")
+    for id in ids:
+        if not isinstance(id, int):
+            raise ValueError("Il set deve contenere solo valori interi.")
 
 class AddElementoDomandaService(AddElementoDomandaUseCase):
     def __init__(self, port: SaveElementoDomandaPort):
-        self.savePort = port
+        self.__port = port
 
     def addElementoDomanda(self, domanda: str, risposta: str) -> ElementoDomanda:
-        #return self.port.saveElementoDomanda(domanda, risposta)
-        return {"domanda": domanda, "risposta": risposta}
+        validateDomandaRisposta(domanda, risposta)
+        return self.__port.saveElementoDomanda(domanda, risposta)
     
 class GetElementoDomandaService(GetElementoDomandaUseCase):
     def __init__(self, port: SaveElementoDomandaPort):
-        self.getPort = port
+        self.__port = port
 
     def getElementoDomandaById(self, id: int) -> ElementoDomanda:
-        #return self.port.saveElementoDomanda(domanda, risposta)
-        return {"id": id}
+        validateId(id)
+        return self.__port.getElementoDomandaById(id)
     
-class GetAllElementiDomandaService:
+class GetAllElementiDomandaService(GetAllElementiDomandaUseCase):
     def __init__(self, port: SaveElementoDomandaPort):
-        self.getPort = port
+        self.__port = port
 
     def getAllElementiDomanda(self) -> set[ElementoDomanda]:
-        #return self.port.saveElementoDomanda(domanda, risposta)
-        return [{"id": 1}, {"id": 2}]
+        return self.__port.getAllElementiDomanda()
     
-class DeleteElementiDomandaService:
+class DeleteElementiDomandaService(DeleteElementiDomandaUseCase):
     def __init__(self, port: SaveElementoDomandaPort):
-        self.getPort = port
+        self.__port = port
 
-    def deleteElementiDomanda(self, id: int) -> bool:
-        #return self.port.saveElementoDomanda(domanda, risposta)
-        return True
+    def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
+        validateIdSet(idElementi)
+        return self.__port.deleteElementiDomandaById(idElementi)
     
-class UpdateElementoDomandaService:
+class UpdateElementoDomandaService(UpdateElementoDomandaUseCase):
     def __init__(self, port: SaveElementoDomandaPort):
-        self.getPort = port
+        self.__port = port
 
-    def updateElementoDomanda(self, id: int, domanda: str, risposta: str) -> bool:
-        #return self.port.saveElementoDomanda(domanda, risposta)
-        return {"id": id, "domanda": domanda, "risposta": risposta}
+    def updateElementoDomandaById(self, id: int, domanda: str, risposta: str) -> bool:
+        validateId(id)
+        validateDomandaRisposta(domanda, risposta)
+        return self.__port.updateElementoDomanda(id, domanda, risposta)

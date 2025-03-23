@@ -23,5 +23,5 @@ class DeleteElementiDomandaUseCase(ABC):
     
 class UpdateElementoDomandaUseCase(ABC):
     @abstractmethod
-    def updateElementoDomanda(self, id: int, domanda: str, risposta: str) -> bool:
+    def updateElementoDomandaById(self, id: int, domanda: str, risposta: str) -> bool:
         pass

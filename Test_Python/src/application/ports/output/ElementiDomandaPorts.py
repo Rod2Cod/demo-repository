@@ -10,13 +10,13 @@ class SaveElementoDomandaPort(ABC):
 class GetElementoDomandaPort(ABC):
 
     @abstractmethod
-    def getElementoDomanda(self, idElemento: int) -> ElementoDomanda:
+    def getElementoDomandaById(self, idElemento: int) -> ElementoDomanda:
         pass
     
 class GetAllElementiDomandaPort(ABC):
 
     @abstractmethod
-    def getAllElementoDomanda(self) -> set[ElementoDomanda]:
+    def getAllElementiDomanda(self) -> set[ElementoDomanda]:
         pass
     
 class DeleteElementiDomandaPort(ABC):
@@ -28,5 +28,5 @@ class DeleteElementiDomandaPort(ABC):
 class UpdateElementoDomandaPort(ABC):
 
     @abstractmethod
-    def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> bool:
+    def updateElementoDomandaById(self, idElemento: int, domanda: str, risposta: str) -> bool:
         pass
