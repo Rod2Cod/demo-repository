@@ -14127,7 +14127,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGVqMFOiPyjtYk="
 											},
-											"name": "idElemento",
+											"name": "id",
 											"type": "int"
 										},
 										{
@@ -14793,15 +14793,6 @@
 										},
 										{
 											"_type": "UMLParameter",
-											"_id": "AAAAAAGVqMshtvgrpE4=",
-											"_parent": {
-												"$ref": "AAAAAAGVqMsdyfEtAMA="
-											},
-											"name": "idTest",
-											"type": "int"
-										},
-										{
-											"_type": "UMLParameter",
 											"_id": "AAAAAAGVqMsht/gsnRY=",
 											"_parent": {
 												"$ref": "AAAAAAGVqMsdyfEtAMA="
@@ -15074,7 +15065,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGVo3mnSDHNUgw="
 											},
-											"name": "idElemento",
+											"name": "id",
 											"type": "int"
 										},
 										{
@@ -15534,15 +15525,6 @@
 												"$ref": "AAAAAAGVo6POqWQ8NW4="
 											},
 											"name": "id",
-											"type": "int"
-										},
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAGVo6PRj2e/irY=",
-											"_parent": {
-												"$ref": "AAAAAAGVo6POqWQ8NW4="
-											},
-											"name": "idTest",
 											"type": "int"
 										},
 										{
@@ -16066,7 +16048,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGVa9b2U+er2L4="
 							},
-							"name": "GetAllRisultatiSingoleDomandeTestPort",
+							"name": "GetAllRisultatiSingoleDomandePort",
 							"operations": [
 								{
 									"_type": "UMLOperation",
@@ -16121,15 +16103,6 @@
 												"$ref": "AAAAAAGVo+bAnmVRhdU="
 											},
 											"name": "id",
-											"type": "int"
-										},
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAGVo+bFJGrwXuQ=",
-											"_parent": {
-												"$ref": "AAAAAAGVo+bAnmVRhdU="
-											},
-											"name": "idTest",
 											"type": "int"
 										},
 										{
@@ -17067,7 +17040,7 @@
 											"top": 3487,
 											"width": 604.71923828125,
 											"height": 13,
-											"text": "+loadRisultatoSingolaDomandaTestById(id: Integer, idTest: int): RisultatoSingolaDomandaEntity",
+											"text": "+loadRisultatoSingolaDomandaTestById(id: Integer): RisultatoSingolaDomandaEntity",
 											"horizontalAlignment": 0
 										}
 									],
@@ -23369,7 +23342,7 @@
 											"top": 1948,
 											"width": 536.55810546875,
 											"height": 13,
-											"text": "+updateElementoDomandaById(idElemento: int, domanda: str, risposta: str): bool",
+											"text": "+updateElementoDomandaById(id: int, domanda: str, risposta: str): bool",
 											"horizontalAlignment": 0
 										}
 									],
@@ -25380,7 +25353,7 @@
 											"top": 3541,
 											"width": 486.23388671875,
 											"height": 13,
-											"text": "+getRisultatoSingolaDomandaTestById(id: int, idTest: int): RisultatoSingolaDomanda",
+											"text": "+getRisultatoSingolaDomandaTestById(id: int): RisultatoSingolaDomanda",
 											"horizontalAlignment": 0
 										}
 									],
@@ -37688,7 +37661,7 @@
 											"top": 2086,
 											"width": 468.89208984375,
 											"height": 13,
-											"text": "+updateElementoDomandaById(idElemento: int, domanda: str, risposta: str): bool",
+											"text": "+updateElementoDomandaById(id: int, domanda: str, risposta: str): bool",
 											"horizontalAlignment": 0
 										}
 									],
@@ -39160,7 +39133,7 @@
 											"top": 3654,
 											"width": 539.001953125,
 											"height": 13,
-											"text": "+getRisultatoSingolaDomandaTestById(id: int, idTest: int): RisultatoSingolaDomanda",
+											"text": "+getRisultatoSingolaDomandaTestById(id: int): RisultatoSingolaDomanda",
 											"horizontalAlignment": 0
 										}
 									],
@@ -52121,7 +52094,7 @@
 											"top": 3535,
 											"width": 466.7275390625,
 											"height": 13,
-											"text": "GetAllRisultatiSingoleDomandeTestPort"
+											"text": "GetAllRisultatiSingoleDomandePort"
 										},
 										{
 											"_type": "LabelView",
@@ -52428,7 +52401,7 @@
 											"top": 3638,
 											"width": 486.23388671875,
 											"height": 13,
-											"text": "+getRisultatoSingolaDomandaTestById(id: int, idTest: int): RisultatoSingolaDomanda",
+											"text": "+getRisultatoSingolaDomandaTestById(id: int): RisultatoSingolaDomanda",
 											"horizontalAlignment": 0
 										}
 									],
@@ -58514,7 +58487,7 @@
 											"top": 1716,
 											"width": 511.52294921875,
 											"height": 13,
-											"text": "+updateElementoDomandaById(idElemento: int, domanda: str, risposta: str): None",
+											"text": "+updateElementoDomandaById(id: int, domanda: str, risposta: str): None",
 											"horizontalAlignment": 0
 										}
 									],
@@ -60782,7 +60755,7 @@
 											"top": 3688,
 											"width": 328.69775390625,
 											"height": 13,
-											"text": "+getRisultatoSingolaDomandaTestById(id: int, idTest: int)",
+											"text": "+getRisultatoSingolaDomandaTestById(id: int)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -62430,7 +62403,7 @@
 											"top": 2096,
 											"width": 437.09033203125,
 											"height": 13,
-											"text": "+updateElementoDomandaById(idElemento: int, domanda: str, risposta: str)",
+											"text": "+updateElementoDomandaById(id: int, domanda: str, risposta: str)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -73459,15 +73432,6 @@
 								},
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAGVpHDyxte+ysE=",
-									"_parent": {
-										"$ref": "AAAAAAGVpHDsgNEsoEI="
-									},
-									"name": "idTest",
-									"type": "int"
-								},
-								{
-									"_type": "UMLParameter",
 									"_id": "AAAAAAGVpHDyx9e/zxA=",
 									"_parent": {
 										"$ref": "AAAAAAGVpHDsgNEsoEI="
@@ -78392,7 +78356,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVpG3aKH9ltyo="
 									},
-									"name": "idElemento",
+									"name": "id",
 									"type": "int"
 								},
 								{
@@ -78791,15 +78755,6 @@
 									},
 									"name": "id",
 									"type": "int"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGVqNXJa61ramI=",
-									"_parent": {
-										"$ref": "AAAAAAGVqNXEcqZthHM="
-									},
-									"name": "idTest",
-									"type": "int"
 								}
 							]
 						}
@@ -79024,7 +78979,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGVqOVh4wOiQ2g="
 									},
-									"name": "idElemento",
+									"name": "id",
 									"type": "int"
 								},
 								{
