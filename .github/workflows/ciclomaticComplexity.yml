@@ -18,6 +18,6 @@ jobs:
                 pip install -r Test_Python/requirements.txt
             - name: checks ciclomatic complexity
               run: |
-                xenon --max-absolute B --max-average A
+                xenon --max-absolute B --max-average A .
             - name: Upload coverage to Coveralls
               uses: coverallsapp/github-action@v2
