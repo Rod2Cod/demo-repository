@@ -22,5 +22,5 @@ class ElementoDomandaPostgreSQLRepository:
     def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> None:
         elemento = ElementoDomandaEntity.query.filter_by(id=idElemento).first()
         elemento.domanda = domanda
-        elemento.ristposta = risposta
+        elemento.risposta = risposta
         self.__db.session.commit()
