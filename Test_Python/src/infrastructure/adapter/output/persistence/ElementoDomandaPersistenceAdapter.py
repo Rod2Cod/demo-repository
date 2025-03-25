@@ -44,7 +44,7 @@ class ElementoDomandaPersistenceAdapter(
 
     def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
         try:
-            self.__repository.deleteElementoDomanda(idElementi)
+            self.__repository.deleteElementiDomanda(idElementi)
             return True
         # problema nel database
         except SQLAlchemyError:

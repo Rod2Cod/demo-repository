@@ -4,9 +4,9 @@ from src.infrastructure.adapter.output.persistence.domain import ElementoDomanda
 class ElementoDomandaPersistenceMapper:
 
     def fromElementoDomandaEntity(self, entity: ElementoDomandaEntity) -> ElementoDomanda:
-        return ElementoDomanda(idElemento=entity.id, 
-                               domanda=Domanda(entity.domanda), 
-                               risposta=Risposta(entity.risposta))
+        return ElementoDomanda(id=entity.id, 
+                               domanda=entity.domanda, 
+                               risposta=entity.risposta)
 
     def toElementoDomandaEntity(self, elemento: ElementoDomanda) -> ElementoDomandaEntity:
         return ElementoDomandaEntity(domanda=elemento.getDomanda().getText(), 

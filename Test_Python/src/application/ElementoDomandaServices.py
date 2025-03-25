@@ -2,12 +2,12 @@ from src.domain import ElementoDomanda
 from src.application.ports.input import AddElementoDomandaUseCase, GetElementoDomandaUseCase, GetAllElementiDomandaUseCase, DeleteElementiDomandaUseCase, UpdateElementoDomandaUseCase
 from src.application.ports.output import SaveElementoDomandaPort, GetElementoDomandaPort, GetAllElementiDomandaPort, DeleteElementiDomandaPort, UpdateElementoDomandaPort
 
-def validateDomandaRisposta(self, domanda: str, risposta: str):
+def validateDomandaRisposta(domanda: str, risposta: str):
         if not(isinstance(domanda, str) and isinstance(risposta, str)) \
             and (len(domanda) == 0 or len(risposta) == 0):
             raise ValueError("Domanda e risposta devono essere stringhe non vuote.")
 
-def validateId(self, id: int):
+def validateId(id: int):
     if not isinstance(id, int):
         raise ValueError("Id deve essere un intero.")
     
@@ -27,7 +27,7 @@ class AddElementoDomandaService(AddElementoDomandaUseCase):
         return self.__port.saveElementoDomanda(domanda, risposta)
     
 class GetElementoDomandaService(GetElementoDomandaUseCase):
-    def __init__(self, port: SaveElementoDomandaPort):
+    def __init__(self, port: GetElementoDomandaPort):
         self.__port = port
 
     def getElementoDomandaById(self, id: int) -> ElementoDomanda:
@@ -35,14 +35,14 @@ class GetElementoDomandaService(GetElementoDomandaUseCase):
         return self.__port.getElementoDomandaById(id)
     
 class GetAllElementiDomandaService(GetAllElementiDomandaUseCase):
-    def __init__(self, port: SaveElementoDomandaPort):
+    def __init__(self, port: GetAllElementiDomandaPort):
         self.__port = port
 
     def getAllElementiDomanda(self) -> set[ElementoDomanda]:
         return self.__port.getAllElementiDomanda()
     
 class DeleteElementiDomandaService(DeleteElementiDomandaUseCase):
-    def __init__(self, port: SaveElementoDomandaPort):
+    def __init__(self, port: DeleteElementiDomandaPort):
         self.__port = port
 
     def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
@@ -50,10 +50,10 @@ class DeleteElementiDomandaService(DeleteElementiDomandaUseCase):
         return self.__port.deleteElementiDomandaById(idElementi)
     
 class UpdateElementoDomandaService(UpdateElementoDomandaUseCase):
-    def __init__(self, port: SaveElementoDomandaPort):
+    def __init__(self, port: UpdateElementoDomandaPort):
         self.__port = port
 
     def updateElementoDomandaById(self, id: int, domanda: str, risposta: str) -> bool:
         validateId(id)
         validateDomandaRisposta(domanda, risposta)
-        return self.__port.updateElementoDomanda(id, domanda, risposta)
+        return self.__port.updateElementoDomandaById(id, domanda, risposta)
