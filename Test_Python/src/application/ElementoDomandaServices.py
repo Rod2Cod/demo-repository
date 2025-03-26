@@ -1,6 +1,6 @@
-from src.domain import ElementoDomanda
-from src.application.ports.input import AddElementoDomandaUseCase, GetElementoDomandaUseCase, GetAllElementiDomandaUseCase, DeleteElementiDomandaUseCase, UpdateElementoDomandaUseCase
-from src.application.ports.output import SaveElementoDomandaPort, GetElementoDomandaPort, GetAllElementiDomandaPort, DeleteElementiDomandaPort, UpdateElementoDomandaPort
+from src.domain.ElementoDomanda import ElementoDomanda
+from src.application.ports.input.ElementoDomandaUseCase import AddElementoDomandaUseCase, GetElementoDomandaUseCase, GetAllElementiDomandaUseCase, DeleteElementiDomandaUseCase, UpdateElementoDomandaUseCase
+from src.application.ports.output.ElementiDomandaPorts import SaveElementoDomandaPort, GetElementoDomandaPort, GetAllElementiDomandaPort, DeleteElementiDomandaPort, UpdateElementoDomandaPort
 
 def validateDomandaRisposta(domanda: str, risposta: str):
         if not(isinstance(domanda, str) and isinstance(risposta, str)) \
@@ -45,9 +45,9 @@ class DeleteElementiDomandaService(DeleteElementiDomandaUseCase):
     def __init__(self, port: DeleteElementiDomandaPort):
         self.__port = port
 
-    def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
-        validateIdSet(idElementi)
-        return self.__port.deleteElementiDomandaById(idElementi)
+    def deleteElementiDomandaById(self, Ids: set[int]) -> bool:
+        validateIdSet(Ids)
+        return self.__port.deleteElementiDomandaById(Ids)
     
 class UpdateElementoDomandaService(UpdateElementoDomandaUseCase):
     def __init__(self, port: UpdateElementoDomandaPort):

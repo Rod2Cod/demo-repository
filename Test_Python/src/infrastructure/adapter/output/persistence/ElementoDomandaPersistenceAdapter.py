@@ -1,16 +1,14 @@
 from src.application.ports.output import SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementiDomandaPort, GetAllElementiDomandaPort, UpdateElementoDomandaPort
 from src.domain import ElementoDomanda
-from src.infrastructure.adapter.output.persistence.mapper import ElementoDomandaPersistenceMapper
-from src.infrastructure.adapter.output.persistence.repository import ElementoDomandaPostgreSQLRepository
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm.exc import NoResultFound
 
 class ElementoDomandaPersistenceAdapter(
     SaveElementoDomandaPort, GetElementoDomandaPort, DeleteElementiDomandaPort, GetAllElementiDomandaPort, UpdateElementoDomandaPort
 ):
-    def __init__(self, repository: ElementoDomandaPostgreSQLRepository):
+    def __init__(self, repository, mapper):
         self.__repository = repository
-        self.__mapper = ElementoDomandaPersistenceMapper()
+        self.__mapper = mapper
 
     def saveElementoDomanda(self, domanda: str, risposta: str) -> ElementoDomanda:
         try:
@@ -21,9 +19,9 @@ class ElementoDomandaPersistenceAdapter(
         except Exception:
             return None
 
-    def getElementoDomandaById(self, idElemento: int) -> ElementoDomanda:
+    def getElementoDomandaById(self, id: int) -> ElementoDomanda:
         try:
-            return self.__mapper.fromElementoDomandaEntity(self.__repository.loadElementoDomandaById(idElemento))
+            return self.__mapper.fromElementoDomandaEntity(self.__repository.loadElementoDomandaById(id))
         # elemento non trovato
         except NoResultFound:
             raise ValueError("Elemento non trovato.")
@@ -42,9 +40,9 @@ class ElementoDomandaPersistenceAdapter(
         except Exception:
             return None
 
-    def deleteElementiDomandaById(self, idElementi: set[int]) -> bool:
+    def deleteElementiDomandaById(self, Ids: set[int]) -> bool:
         try:
-            self.__repository.deleteElementiDomanda(idElementi)
+            self.__repository.deleteElementiDomanda(Ids)
             return True
         # problema nel database
         except SQLAlchemyError:
@@ -52,9 +50,9 @@ class ElementoDomandaPersistenceAdapter(
         except Exception:
             return False
 
-    def updateElementoDomandaById(self, idElemento: int, domanda: str, risposta: str) -> bool:
+    def updateElementoDomandaById(self, id: int, domanda: str, risposta: str) -> bool:
         try:
-            self.__repository.updateElementoDomanda(idElemento, domanda, risposta)
+            self.__repository.updateElementoDomanda(id, domanda, risposta)
             return True
         # elemento non trovato
         except NoResultFound:

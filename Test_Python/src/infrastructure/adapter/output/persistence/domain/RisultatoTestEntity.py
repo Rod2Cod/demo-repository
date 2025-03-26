@@ -23,5 +23,6 @@ class RisultatoTestEntity(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # Chiave primaria
     data = db.Column(db.DateTime, nullable=False)
     score = db.Column(db.Float, nullable=False)
+    LLM = db.Column(db.Text, nullable=False)
     nomeSet = db.Column(db.Text, nullable=True)
     risultatiDomande = db.relationship('RisultatoSingolaDomandaEntity', back_populates="risultatoTest")  # Relazione uno a molti con la tabella risultato_singola_domanda (bidirezionale)

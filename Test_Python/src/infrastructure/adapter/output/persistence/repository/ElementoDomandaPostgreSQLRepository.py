@@ -9,18 +9,18 @@ class ElementoDomandaPostgreSQLRepository:
         self.__db.session.commit()
         return elementoEntity
     
-    def loadElementoDomandaById(self, idElemento: int) -> ElementoDomandaEntity:
-        return ElementoDomandaEntity.query.filter_by(id=idElemento).first()
+    def loadElementoDomandaById(self, id: int) -> ElementoDomandaEntity:
+        return ElementoDomandaEntity.query.filter_by(id=id).one()
     
-    def deleteElementiDomanda(self, idElementi: set[int]) -> None:
-        ElementoDomandaEntity.query.filter(ElementoDomandaEntity.id.in_(idElementi)).delete(synchronize_session=False)
+    def deleteElementiDomanda(self, id: set[int]) -> None:
+        ElementoDomandaEntity.query.filter(ElementoDomandaEntity.id.in_(id)).delete(synchronize_session=False)
         self.__db.session.commit()
     
     def loadAllElementiDomanda(self) -> set[ElementoDomandaEntity]:
         return set(ElementoDomandaEntity.query.all())
     
-    def updateElementoDomanda(self, idElemento: int, domanda: str, risposta: str) -> None:
-        elemento = ElementoDomandaEntity.query.filter_by(id=idElemento).first()
+    def updateElementoDomanda(self, id: int, domanda: str, risposta: str) -> None:
+        elemento = ElementoDomandaEntity.query.filter_by(id=id).one()
         elemento.domanda = domanda
         elemento.risposta = risposta
         self.__db.session.commit()

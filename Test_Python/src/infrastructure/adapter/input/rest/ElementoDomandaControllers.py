@@ -1,14 +1,19 @@
 from flask import request, jsonify, Blueprint
 from werkzeug.exceptions import BadRequest
 from dependency_injector.wiring import inject, Provide
-from src.infrastructure.adapter.input.rest.containers.Containers import Containers
+from src.infrastructure.adapter.input.rest.containers.Containers import RootContainer
 
-from src.application.ports.input import AddElementoDomandaUseCase, GetElementoDomandaUseCase, GetAllElementiDomandaUseCase, DeleteElementiDomandaUseCase, UpdateElementoDomandaUseCase
+from src.application.ports.input import (AddElementoDomandaUseCase, 
+                                         GetElementoDomandaUseCase, 
+                                         GetAllElementiDomandaUseCase, 
+                                         DeleteElementiDomandaUseCase, 
+                                         UpdateElementoDomandaUseCase)
+
 
 elementoDomanda_blueprint = Blueprint('elementoDomanda_blueprint', __name__)
 
 class AddElementoDomandaController:
-    def __init__(self, useCase: AddElementoDomandaUseCase = Provide[Containers.elementoDomandaContainer.AddElementoDomandaService]):
+    def __init__(self, useCase: AddElementoDomandaUseCase = Provide[RootContainer.elementoDomandaContainer.AddElementoDomandaService]):
         self.__useCase = useCase
         elementoDomanda_blueprint.add_url_rule('/domande', view_func=self.addElementoDomanda, methods=['POST'])
 
@@ -31,7 +36,7 @@ class AddElementoDomandaController:
             return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
    
 class GetElementoDomandaController:
-    def __init__(self, useCase: GetElementoDomandaUseCase = Provide[Containers.elementoDomandaContainer.GetElementoDomandaService]):
+    def __init__(self, useCase: GetElementoDomandaUseCase = Provide[RootContainer.elementoDomandaContainer.GetElementoDomandaService]):
         self.__useCase = useCase
         elementoDomanda_blueprint.add_url_rule('/domande/<int:id>', view_func=self.getElementoDomandaById, methods=['GET'])
 
@@ -47,7 +52,7 @@ class GetElementoDomandaController:
             return jsonify(str(e)), 500
     
 class GetAllElementiDomandaController:
-    def __init__(self, useCase: GetAllElementiDomandaUseCase = Provide[Containers.elementoDomandaContainer.GetAllElementiDomandaService]):
+    def __init__(self, useCase: GetAllElementiDomandaUseCase = Provide[RootContainer.elementoDomandaContainer.GetAllElementiDomandaService]):
         self.__useCase = useCase
         elementoDomanda_blueprint.add_url_rule('/domande', view_func=self.getAllElementiDomanda, methods=['GET'])
 
@@ -57,12 +62,12 @@ class GetAllElementiDomandaController:
             elementi = self.__useCase.getAllElementiDomanda()
             # Se elementi è set vuoto lo ritorna, altrimento se è None ritorna errore 500
             return (jsonify([elemento.serialize() for elemento in elementi]), 200) \
-                if not(elementi is None) else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
+                if elementi else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
         except Exception:
             return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
     
 class DeleteElementiDomandaController:
-    def __init__(self, useCase: DeleteElementiDomandaUseCase = Provide[Containers.elementoDomandaContainer.DeleteElementiDomandaService]):
+    def __init__(self, useCase: DeleteElementiDomandaUseCase = Provide[RootContainer.elementoDomandaContainer.DeleteElementiDomandaService]):
         self.__useCase = useCase
         elementoDomanda_blueprint.add_url_rule('/domande/delete', view_func=self.deleteElementiDomandaByid, methods=['POST'])
 
@@ -79,7 +84,7 @@ class DeleteElementiDomandaController:
             return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
     
 class UpdateElementoDomandaController:
-    def __init__(self, useCase: UpdateElementoDomandaUseCase = Provide[Containers.elementoDomandaContainer.UpdateElementoDomandaService]):
+    def __init__(self, useCase: UpdateElementoDomandaUseCase = Provide[RootContainer.elementoDomandaContainer.UpdateElementoDomandaService]):
         self.__useCase = useCase
         elementoDomanda_blueprint.add_url_rule('/domande/<int:id>', view_func=self.updateElementoDomandaById, methods=['PUT'])
 
