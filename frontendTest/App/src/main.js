@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 
 
+import axios from 'axios'
+axios.defaults.baseURL = 'https://backend/api'
+
 const app = createApp(App)
 app.use(router)
 app.mount('#app')

@@ -42,12 +42,10 @@ import { chatbubblesOutline, analyticsOutline, trophyOutline } from "ionicons/ic
 export default {
   name: "HomeView",
   components: {
-    // IonIcon è un componente
     IonIcon
   },
   data() {
     return {
-      // Queste sono variabili (icon paths), non componenti
       chatbubblesOutline,
       analyticsOutline,
       trophyOutline
@@ -55,7 +53,6 @@ export default {
   },
   methods: {
     goToQuestion() {
-      // OK in Options API
       this.$router.push("/questions");
     }
   }

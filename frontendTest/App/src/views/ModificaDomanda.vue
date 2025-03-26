@@ -1,37 +1,3 @@
-<script>
-export default {
-  name: "ModificaDomanda",
-  data() {
-    return {
-      question: "",
-      expectedAnswer: "",
-      isLoaded: false, // Per simulare il caricamento dei dati
-    };
-  },
-  mounted() {
-    this.loadQuestion();
-  },
-  methods: {
-    loadQuestion() {
-
-      setTimeout(() => {
-        this.question = "Cos'è Vue.js?";
-        this.expectedAnswer =
-            "Vue.js è un framework JavaScript progressivo per la creazione di interfacce utente.";
-        this.isLoaded = true;
-      }, 500);
-    },
-    submitForm() {
-      console.log("Domanda modificata:", this.question, this.expectedAnswer);
-      // API per aggiornare la domanda
-    },
-    cancel() {
-      this.$router.push("/questions")
-    },
-  },
-};
-</script>
-
 <template>
   <main class="container">
     <h1 class="page-title">Modifica la Domanda</h1>
@@ -67,6 +33,68 @@ export default {
     <p v-else class="loading-text">Caricamento domanda...</p>
   </main>
 </template>
+
+<script>
+
+import axios from "axios";
+
+export default {
+  name: "ModificaDomanda",
+  data() {
+    return {
+      question: "",
+      expectedAnswer: "",
+      isLoaded: false, // Per simulare il caricamento dei dati
+    };
+  },
+  mounted() {
+    this.loadQuestion();
+  },
+  methods: {
+    async loadQuestion() {
+
+      const questionId = this.$route.params.id;
+
+      try {
+        //const res = await axios.get(`/api/questions/${questionId}`);
+        //this.question = res.data.question;
+        //this.expectedAnswer = res.data.expectedAnswer;
+        this.isLoaded = true;
+      } catch (error) {
+        console.error("Errore durante il caricamento:", error);
+        this.$router.push("/questions");
+      }
+    },
+
+    async submitForm() {
+      const questionId = this.$route.params.id;
+
+      if (!this.payload.question || !this.payload.expectedAnswer) {
+        alert("Compila entrambi i campi.");
+        return;
+      }
+
+      try {
+        //await axios.put(`/api/questions/${questionId}`, this.payload);
+        this.$router.push("/questions");
+      } catch (error) {
+        console.error("Errore durante il salvataggio:", error);
+      }
+    },
+    cancel() {
+      this.$router.push("/questions")
+    },
+  },
+  computed: {
+    payload() {
+      return {
+        question: this.question.trim(),
+        expectedAnswer: this.expectedAnswer.trim()
+      };
+    }
+  },
+};
+</script>
 
 <style scoped>
 .container {

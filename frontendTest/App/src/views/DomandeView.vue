@@ -75,7 +75,18 @@ export default {
       selectedQuestions: []
     };
   },
+  mounted() {
+    //this.loadQuestions();
+  },
   methods: {
+    async loadQuestions() {
+      try {
+        const response = await axios.get("/api/questions");
+        this.questions = response.data;
+      } catch (error) {
+        console.error("Errore nel recuperare le domande:", error);
+      }
+    },
     goToAddQuestion() {
       this.$router.push("/addquestion");
     },
@@ -94,15 +105,20 @@ export default {
         this.selectedQuestions.push(id);
       }
     },
-    confirmDelete() {
+    async confirmDelete() {
       if (this.selectedQuestions.length === 0) {
         alert("Seleziona almeno una domanda da eliminare.");
         return;
       }
 
       if (confirm(`Sei sicuro di voler eliminare ${this.selectedQuestions.length} domanda(e)?`)) {
-        this.questions = this.questions.filter(q => !this.selectedQuestions.includes(q.id));
-        this.cancelDeleteMode();
+        try {
+          await axios.delete("/api/questions", { data: { ids: this.selectedQuestions } });
+          this.questions = this.questions.filter(q => !this.selectedQuestions.includes(q.id));
+          this.cancelDeleteMode();
+        } catch (error) {
+          console.error("Errore durante l'eliminazione:", error);
+        }
       }
     }
   }

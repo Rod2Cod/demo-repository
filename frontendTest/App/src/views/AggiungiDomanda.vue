@@ -1,21 +1,4 @@
-<script>
-export default {
-  name: "AggiungiDomanda",
-  data() {
-    return {
-      question: "",
-      expectedAnswer: ""
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log("Form inviato con:", this.question, this.expectedAnswer);
-      this.$router.push("/questions");
-      // API in futuro
-    }
-  }
-};
-</script>
+
 
 <template>
   <main class="container">
@@ -48,6 +31,44 @@ export default {
     </form>
   </main>
 </template>
+
+<script>
+
+import axios from "axios";
+
+export default {
+  name: "AggiungiDomanda",
+  data() {
+    return {
+      question: "",
+      expectedAnswer: ""
+    };
+  },
+  methods: {
+    async submitForm() {
+      if (!this.payload.question || !this.payload.expectedAnswer) {
+        alert("Compila entrambi i campi.");
+        return;
+      }
+
+      try {
+        //await axios.post("/api/questions", this.payload);
+        this.$router.push("/questions");
+      } catch (error) {
+        console.error("Errore durante l'invio della domanda:", error);
+      }
+    }
+  },
+  computed: {
+    payload() {
+      return {
+        question: this.question.trim(),
+        expectedAnswer: this.expectedAnswer.trim()
+      };
+    }
+  },
+};
+</script>
 
 <style scoped>
 .container {
