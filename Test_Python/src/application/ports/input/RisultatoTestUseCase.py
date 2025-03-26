@@ -19,10 +19,10 @@ class GetAllRisultatiTestUseCase(ABC):
     
 class GetAllRisultatiSingoleDomandeUseCase(ABC):
     @abstractmethod
-    def getAllRisultatiSingoleDomandeByTestId(self, idTest: int) -> set[RisultatoSingolaDomanda]:
+    def getAllRisultatiSingoleDomandeByTestId(self, id: int) -> set[RisultatoSingolaDomanda]:
         pass
     
 class GetRisultatoSingolaDomandaUseCase(ABC):
     @abstractmethod
-    def getRisultatoSingolaDomandaTestById(self, idTest: int, id: int) -> RisultatoSingolaDomanda:
+    def getRisultatoSingolaDomandaTestById(self, id: int) -> RisultatoSingolaDomanda:
         pass

@@ -9,11 +9,11 @@ class RisultatoTestPostgreSQLRepository:
         self.__db.session.commit()
         return risultatoTestEntity
     
-    def loadRisultatoTestById(self, idRisultatoTest: int) -> RisultatoTestEntity:
-        return RisultatoTestEntity.query.filter_by(id=idRisultatoTest).first()
+    def loadRisultatoTestById(self, id: int) -> RisultatoTestEntity:
+        return RisultatoTestEntity.query.filter_by(id=id).one()
     
-    def deleteRisultatoTest(self, idRisultatoTest: int) -> None:
-        risultatoTest = RisultatoTestEntity.query.filter_by(id=idRisultatoTest).first()
+    def deleteRisultatoTest(self, id: int) -> None:
+        risultatoTest = RisultatoTestEntity.query.filter_by(id=id).one()
         self.__db.session.delete(risultatoTest)
         self.__db.session.commit()
     

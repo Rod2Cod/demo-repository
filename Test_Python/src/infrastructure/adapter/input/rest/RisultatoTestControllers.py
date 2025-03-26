@@ -1,68 +1,74 @@
 from flask import request, jsonify, Blueprint
-from pydantic import ValidationError
+from dependency_injector.wiring import inject, Provide
+from src.infrastructure.adapter.input.rest.containers.Containers import RootContainer
 
-from src.application.ports.input import AddRisultatoTestUseCase, GetRisultatoTestUseCase, GetAllRisultatiTestUseCase, GetAllRisultatiSingoleDomandeUseCase, GetRisultatoSingolaDomandaUseCase
+from src.application.ports.input import (GetRisultatoTestUseCase, 
+                                         GetAllRisultatiTestUseCase, 
+                                         GetAllRisultatiSingoleDomandeUseCase, 
+                                         GetRisultatoSingolaDomandaUseCase)
 
-risultatoTest_blueprint = Blueprint('risultatoTest_blueprint', __name__, url_prefix='/api')
 
-class AddRisultatoTestController:
-    def __init__(self, useCase: AddRisultatoTestUseCase):
-        self.useCase = useCase
-
-    @risultatoTest_blueprint.route('/risultatoTest/add', methods=['POST'])
-    def addRisultatoTest(self):
-        pass
+risultatoTest_blueprint = Blueprint('risultatoTest_blueprint', __name__)
         
 class GetRisultatoTestController:
-    def __init__(self, useCase: GetRisultatoTestUseCase):
-        self.useCase = useCase
+    def __init__(self, useCase: GetRisultatoTestUseCase = Provide[RootContainer.risultatoTestContainer.GetRisultatoTestService]):
+        self.__useCase = useCase
+        risultatoTest_blueprint.add_url_rule('/risultati/<int:id>', view_func=self.getRisultatoTestById, methods=['GET'])
 
-    @risultatoTest_blueprint.route('/risultatoTest/<int:id>', methods=['GET'])
-    def getRisultatoTestById(self):
+    @inject
+    def getRisultatoTestById(self, id: int):
         try:
-            id = request.args.get('id', type=int)
-            risultato = self.useCase.getRisultatoTestById(id)
-            return jsonify(risultato.serialize()), 200 if risultato else jsonify("Risultato non trovato."), 404
-        except ValueError:
-            return jsonify("L'id deve essere un intero.", 400)
-    
-class GetAllRisultatiTestController:
-    def __init__(self, useCase: GetAllRisultatiTestUseCase):
-        self.useCase = useCase
+            risultato = self.__useCase.getRisultatoTestById(id)
+            return (jsonify(risultato.serialize()), 200) \
+                if risultato else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
+        except ValueError as e:
+            return jsonify(str(e)), 400
+        except Exception:
+            return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
 
-    @risultatoTest_blueprint.route('/risultatiTest', methods=['GET'])
+class GetAllRisultatiTestController:
+    def __init__(self, useCase: GetAllRisultatiTestUseCase = Provide[RootContainer.risultatoTestContainer.GetAllRisultatiTestService]):
+        self.__useCase = useCase
+        risultatoTest_blueprint.add_url_rule('/risultati', view_func=self.getAllRisultatiTest, methods=['GET'])
+
+    @inject
     def getAllRisultatiTest(self):
         try:
-            return self.useCase.getAllRisultatiTest()
+            risultati = self.__useCase.getAllRisultatiTest()
+            return (jsonify([risultato.serializeForList() for risultato in risultati]), 200) \
+                if risultati else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
         except Exception:
-            return jsonify("Si è verificato un errore nel server, riprova pià tardi"), 500
-    
+            return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
+
 class GetAllRisultatiSingoleDomandeController:
-    def __init__(self, useCase: GetAllRisultatiSingoleDomandeUseCase):
-        self.useCase = useCase
+    def __init__(self, useCase: GetAllRisultatiSingoleDomandeUseCase = Provide[RootContainer.risultatoTestContainer.GetAllRisultatiSingoleDomandeService]):
+        self.__useCase = useCase
+        risultatoTest_blueprint.add_url_rule('/risultati/<int:id>/domande', view_func=self.getAllRisultatiSingoleDomandeByTestId, methods=['GET'])
 
-    @risultatoTest_blueprint.route('/risultatiSingoleDomande/<int:id>', methods=['GET'])
-    def getAllRisultatiSingoleDomandeByTestId(self):
+    @inject
+    def getAllRisultatiSingoleDomandeByTestId(self, id: int):
         try:
-            id = request.args.get('id', type=int)
-            risultati = self.useCase.getAllRisultatiSingoleDomandeByTestId(id)
-            return jsonify([risultato.serialize() for risultato in risultati]), 200 if risultati else jsonify("Set non trovato."), 404
-        except ValueError:
-            return jsonify("L'id deve essere un intero.", 400)
-        except Exception:
-            return jsonify("Si è verificato un errore nel server, riprova pià tardi"), 500      
-    
+            risultati = self.__useCase.getAllRisultatiSingoleDomandeByTestId(id)
+            return (jsonify([risultato.serialize() for risultato in risultati]), 200) \
+                if risultati else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
+        except ValueError as e:
+            return jsonify(str(e)), 400
+        except Exception as e:
+            print(e)
+            return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
+
 class GetRisultatoSingolaDomandaController:
-    def __init__(self, useCase: GetRisultatoSingolaDomandaUseCase):
-        self.useCase = useCase
+    def __init__(self, useCase: GetRisultatoSingolaDomandaUseCase = Provide[RootContainer.risultatoTestContainer.GetRisultatoSingolaDomandaService]):
+        self.__useCase = useCase
+        risultatoTest_blueprint.add_url_rule('/risultati/domande/<int:id>', view_func=self.getRisultatoSingolaDomandaById, methods=['GET'])
 
-    @risultatoTest_blueprint.route('/risultatoSingolaDomanda/<int:id>', methods=['GET'])
-    def getRisultatoSingolaDomandaById(self):
+    @inject
+    def getRisultatoSingolaDomandaById(self, id: int):
         try:
-            id = request.args.get('id', type=int)
-            risultato = self.useCase.getRisultatoSingolaDomandaTestById(id)
-            return jsonify(risultato.serialize()), 200 if risultato else jsonify("Risultato non trovato."), 404
-        except ValueError:
-            return jsonify("L'id deve essere un intero.", 400)
+            risultato = self.__useCase.getRisultatoSingolaDomandaTestById(id)
+            return (jsonify(risultato.serialize()), 200) \
+                if risultato else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
+        except ValueError as e:
+            return jsonify(str(e)), 400
         except Exception:
-            return jsonify("Si è verificato un errore nel server, riprova pià tardi"), 500
+            return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500

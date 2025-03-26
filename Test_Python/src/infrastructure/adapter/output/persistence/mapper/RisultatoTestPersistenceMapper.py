@@ -5,7 +5,6 @@ from src.infrastructure.adapter.output.persistence.mapper import RisultatoSingol
 class RisultatoTestPersistenceMapper:
     def __init__(self, mapperRisultatoSingolaDomanda: RisultatoSingolaDomandaPersistenceMapper):
         self.__mapperRisultatoSingolaDomanda = mapperRisultatoSingolaDomanda
-        
     
     def fromRisultatoTestEntity(self, entity: RisultatoTestEntity) -> RisultatoTest:
         return RisultatoTest(id=entity.id, 

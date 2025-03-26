@@ -18913,7 +18913,7 @@
 											"top": 3472,
 											"width": 604.71923828125,
 											"height": 13,
-											"text": "+loadAllRisultatoSingolaDomandaByTestId(id: int): set<RisultatoSingolaDomandaEntity>",
+											"text": "+loadAllRisultatiSingoleDomandeByTestId(id: int): set<RisultatoSingolaDomandaEntity>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -82719,7 +82719,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGVa9b2Uud++Dw="
 							},
-							"name": "loadAllRisultatoSingolaDomandaByTestId",
+							"name": "loadAllRisultatiSingoleDomandeByTestId",
 							"parameters": [
 								{
 									"_type": "UMLParameter",

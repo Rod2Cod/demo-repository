@@ -73,3 +73,12 @@ class RisultatoTest:
             "nomeSet": self.__nomeSet,
             "risultatiDomande": [risultatoDomanda.serialize() for risultatoDomanda in self.__risultatiDomande]
         }
+        
+    def serializeForList(self) -> dict:
+        return {
+            "id": self.__id,
+            "score": self.__score,
+            "LLM": self.__LLM,
+            "dataEsecuzione": self.__dataEsecuzione,
+            "nomeSet": self.__nomeSet
+        }

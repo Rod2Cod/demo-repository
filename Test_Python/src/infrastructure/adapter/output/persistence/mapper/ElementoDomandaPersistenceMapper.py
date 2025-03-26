@@ -1,4 +1,4 @@
-from src.domain import ElementoDomanda, Domanda, Risposta
+from src.domain import ElementoDomanda
 from src.infrastructure.adapter.output.persistence.domain import ElementoDomandaEntity
 
 class ElementoDomandaPersistenceMapper:
