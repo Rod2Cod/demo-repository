@@ -1,5 +1,6 @@
 from src.application.ports.input import ExecuteTestUseCase
-from src.application.ports.output import LLMPort, SaveRisultatoTestPort, GetAllElementiDomandaPort, AlgoritmoValutazioneRisposte
+from src.application.ports.output import LLMPort, SaveRisultatoTestPort, GetAllElementiDomandaPort
+from src.application.evaluation.AlgoritmoValutazioneRisposte import AlgoritmoValutazioneRisposte
 from src.domain import RisultatoTest, RisultatoSingolaDomanda
 import datetime
 import uuid         # utilizzato per generare un id univoco temporaneo per ogni domanda e test. Quello definitivo verrà generato dal database

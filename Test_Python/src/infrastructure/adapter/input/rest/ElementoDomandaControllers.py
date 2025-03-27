@@ -98,8 +98,7 @@ class UpdateElementoDomandaController:
                 if updated else (jsonify("Si è verificato un errore nel server, riprova più tardi"), 500)
         except BadRequest:
             return jsonify("Domanda e risposta sono campi obbligatori."), 400
-        except Exception as e:
-            print(str(e))
+        except Exception:
             return jsonify("Si è verificato un errore nel server, riprova più tardi"), 500
         except ValueError as e:
             return jsonify(str(e)), 400
