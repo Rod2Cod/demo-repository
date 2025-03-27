@@ -178,3 +178,6 @@ pyrightconfig.json
 # POSTGRESQL DOCKER
 db_data/
 pgadmin_data/
+
+# VSCODE
+.vscode/
